@@ -261,7 +261,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 					FileUtil.writeTextFile(file, text);
 
 					if (settings.isLogComponentDescriptors()) {
-						log.info("### descriptor file = {}", file);
+						log.info("### descriptor file = \n{}", file);
 						log.info("### descriptor text = \n{}", text);
 					}
 
