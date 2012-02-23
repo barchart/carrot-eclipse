@@ -1,84 +1,71 @@
 package com.carrotgarden.m2e.scr;
 
+import static com.carrotgarden.m2e.scr.BuildParticipant.ClassesSelector.*;
+import static com.carrotgarden.m2e.scr.prop.Props.*;
+
 import java.io.File;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.maven.artifact.DependencyResolutionRequiredException;
-import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecution;
 import org.codehaus.plexus.util.Scanner;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.m2e.core.MavenPlugin;
-import org.eclipse.m2e.core.embedder.IMaven;
-import org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.carrotgarden.m2e.scr.prop.Settings;
 import com.carrotgarden.m2e.scr.util.FileUtil;
 import com.carrotgarden.m2e.scr.util.MojoUtil;
 import com.carrotgarden.osgi.anno.scr.make.Maker;
 
-/**  */
-public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
+/**
+ * provides m2e connector for carrot-maven-scr-plugin
+ */
+public class BuildParticipantSCR extends BuildParticipant {
 
 	private static final Logger log = LoggerFactory
 			.getLogger(BuildParticipantSCR.class);
 
-	/** return null to tell m2e to skip mojo invocation */
+	/** return null to tell m2e to skip extra actions */
 	private final static Set<IProject> NOTHING = null;
 
 	public BuildParticipantSCR(final MojoExecution execution) {
-		super(execution, true);
+		super(execution, true, true);
 	}
-
-	/**
-	 * @see <a href=
-	 *      "https://github.com/sonatype/sisu-build-api/tree/master/src/main/java/org/sonatype/plexus/build/incremental"
-	 *      />
-	 */
 
 	@Override
 	public Set<IProject> build(final int kind, final IProgressMonitor monitor)
 			throws Exception {
 
-		final MojoExecution execution = getMojoExecution();
+		final BuildType type = BuildType.fromKind(kind);
 
-		final String goal = execution.getGoal();
+		log.info("#########################################################");
+		log.info("### m2e - carrot-maven-scr-plugin ({})", type.comment);
 
-		if ("clean".equals(goal)) {
-			return buildClean(kind, monitor);
+		switch (type.action) {
+		case DO_FULL:
+			buildClean(type, monitor);
+			buildGenerate(type, monitor);
+			break;
+		case DO_INCR:
+			buildGenerate(type, monitor);
+			break;
+		default:
+			break;
 		}
 
-		if ("generate".equals(goal)) {
-			return buildGenerate(kind, monitor);
-		}
-
-		log.error("unsupported goal = " + goal);
+		log.info("#########################################################");
 
 		return NOTHING;
 
 	}
 
-	protected Set<IProject> buildClean(final int kind,
+	protected Set<IProject> buildClean(final BuildType type,
 			final IProgressMonitor monitor) throws Exception {
 
-		final File outputMainClasses = ClassesSelector.COMPILE
-				.getOutputDirectory(this);
-
-		final String targetDirectory = MavenPlugin.getMaven()
-				.getMojoParameterValue(getSession(), getMojoExecution(),
-						PropsSCR.PROP_TARGET_DIRCTORY, String.class);
-
-		final File outputDirectorySCR = new File(outputMainClasses,
-				targetDirectory);
+		final File outputDirectorySCR = getOutputDirectorySCR();
 
 		//
 
@@ -104,74 +91,47 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 
 	}
 
-	protected Set<IProject> buildGenerate(final int kind,
+	protected Set<IProject> buildGenerate(final BuildType type,
 			final IProgressMonitor monitor) throws Exception {
 
-		boolean isLogErrorTraces = false;
+		boolean isLogErrorTraces = true;
 
 		try {
 
-			final IMaven maven = MavenPlugin.getMaven();
-			final MavenSession session = getSession();
-			final MojoExecution execution = getMojoExecution();
-
-			@SuppressWarnings("unchecked")
-			final Map<String, String> eclipseSettings = maven
-					.getMojoParameterValue(session, execution,
-							PropsSCR.PROP_ECLIPSE_SETTINGS, Map.class);
-
-			final Boolean isProcessMainClasses = maven.getMojoParameterValue(
-					session, execution, PropsSCR.PROP_PROCESS_COMPILE,
-					Boolean.class);
-
-			final Boolean isProcessTestClasses = maven.getMojoParameterValue(
-					session, execution, PropsSCR.PROP_PROCESS_TESTING,
-					Boolean.class);
+			final Map<String, String> eclipseSettings = getPropertyMap(PROP_ECLIPSE_SETTINGS);
 
 			//
 
-			final SettingsSCR settings = new SettingsSCR(eclipseSettings);
+			final Settings settings = new Settings(eclipseSettings);
 
 			isLogErrorTraces = settings.isLogErrorTraces();
 
-			if (getBuildContext().isIncremental()) {
-
-				if (settings.isLogInvocationDetails()) {
-					log.info("################# m2e carrot-maven-scr-plugin ################# ");
-					log.info("### incremental generate");
+			switch (type.action) {
+			case DO_FULL:
+				/** invoke maven plugin */
+				super.build(type.kind, monitor);
+				break;
+			case DO_INCR:
+				/** process locally */
+				if (getPropertyBoolean(PROP_PROCESS_COMPILE)) {
+					buildGenerate(settings, COMPILE, type, monitor);
 				}
-
-				if (isProcessMainClasses) {
-					buildGenerate(settings, ClassesSelector.COMPILE, kind,
-							monitor);
+				if (getPropertyBoolean(PROP_PROCESS_TESTING)) {
+					buildGenerate(settings, TESTING, type, monitor);
 				}
-
-				if (isProcessTestClasses) {
-					buildGenerate(settings, ClassesSelector.TESTING, kind,
-							monitor);
-				}
-
-				return NOTHING;
-
-			} else {
-
-				log.info("################# m2e carrot-maven-scr-plugin ################# ");
-				log.info("###");
-				log.info("### batch clean");
-				final Set<IProject> resultClean = buildClean(kind, monitor);
-				log.info("###");
-				log.info("### batch generate");
-				final Set<IProject> resultBuild = super.build(kind, monitor);
-
-				return resultBuild;
-
+				break;
+			default:
+				log.error("unexpected invocation type = " + type.comment);
+				break;
 			}
+
+			return NOTHING;
 
 		} catch (final Exception e) {
 
 			final StackTraceElement[] trace = e.getStackTrace();
 			if (trace != null && isLogErrorTraces) {
-				log.warn("### exception");
+				log.warn("### error trace");
 				for (final StackTraceElement entry : trace) {
 					log.warn("### {}", entry);
 				}
@@ -185,50 +145,34 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 
 	}
 
-	protected Set<IProject> buildGenerate(final SettingsSCR settings,
-			final ClassesSelector selector, final int kind,
+	protected BuildResult buildGenerate(final Settings settings,
+			final ClassesSelector selector, final BuildType type,
 			final IProgressMonitor monitor) throws Exception {
-
-		final IMaven maven = MavenPlugin.getMaven();
-		final MavenSession session = getSession();
-		final MojoExecution execution = getMojoExecution();
-
-		@SuppressWarnings("unchecked")
-		final Set<String> excludedServices = maven.getMojoParameterValue(
-				session, execution, PropsSCR.PROP_EXCLUDED_SERVICES, Set.class);
-
-		final String outputExtension = maven.getMojoParameterValue(session,
-				execution, PropsSCR.PROP_OUTPUT_EXTENSION, String.class);
-
-		final String targetDirectory = maven.getMojoParameterValue(session,
-				execution, PropsSCR.PROP_TARGET_DIRCTORY, String.class);
-
-		final File outputMainClasses = ClassesSelector.COMPILE
-				.getOutputDirectory(this);
-
-		/** .../target/classes/OSGI-INF/service-component */
-		final File outputDirectorySCR = new File(outputMainClasses,
-				targetDirectory);
 
 		final List<String> sourceRoots = selector.getSourceRoots(this);
 
-		final boolean isValidSourceRoots = MojoUtil.isValid(sourceRoots);
-
 		if (settings.isLogInvocationDetails()) {
-			log.info("### selector={}", selector);
-			log.info("### sourceRoots={}", sourceRoots);
-			log.info("### targetDirectory={}", targetDirectory);
-			if (!isValidSourceRoots) {
-				log.info("### skip invocation : no valid source roots");
-			}
+			log.info("### selector = {}", selector);
+			log.info("### sourceRoots= {}", sourceRoots);
 		}
 
-		if (!isValidSourceRoots) {
-			return NOTHING;
+		if (!MojoUtil.isValid(sourceRoots)) {
+			return BuildResult.SKIP;
 		}
 
+		final Set<String> excludedServices = getPropertySet(PROP_EXCLUDED_SERVICES);
 		if (settings.isLogExcludedServices()) {
-			log.info("### excludedServices={}", excludedServices);
+			log.info("### excludedServices = {}", excludedServices);
+		}
+
+		final File outputDirectorySCR = getOutputDirectorySCR();
+		if (settings.isLogInvocationDetails()) {
+			log.info("### outputDirectorySCR = {}", outputDirectorySCR);
+		}
+
+		final String outputExtensionSCR = getPropertyString(PROP_OUTPUT_EXTENSION);
+		if (settings.isLogInvocationDetails()) {
+			log.info("### outputExtensionSCR = {}", outputExtensionSCR);
 		}
 
 		final long timeStart = System.nanoTime();
@@ -249,7 +193,7 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 			}
 
 			if (settings.isLogInvocationDetails()) {
-				log.info("### sourceRoot={}", rootPath);
+				log.info("### sourceRoot = {}", rootPath);
 			}
 
 			final File rootDir = new File(rootPath);
@@ -268,8 +212,7 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 			for (final String included : includedFiles) {
 
 				if (monitor.isCanceled()) {
-					log.warn("### monitor is cancelled; terminating");
-					return NOTHING;
+					return BuildResult.CANCEL;
 				}
 
 				// final File file = new File(rootDir, included);
@@ -289,29 +232,28 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 						loader);
 
 				if (settings.isLogInvocationDetails()) {
-					log.info("### name : {}", sourceKlaz.getName());
+					log.info("### name = {}", sourceKlaz.getName());
 				}
 
 				/** produce component descriptor */
 				final String text = maker.make(sourceKlaz);
 
-				if (text == null) {
+				final boolean isComponent = (text != null);
 
-					continue;
-
-				} else {
+				if (isComponent) {
 
 					/** com.example.impl.Component.xml */
-					final String name = sourceKlaz.getName() + "."
-							+ outputExtension;
+					final String descriptorFilename = sourceKlaz.getName()
+							+ "." + outputExtensionSCR;
 
-					final File file = new File(outputDirectorySCR, name);
+					final File file = new File(outputDirectorySCR,
+							descriptorFilename);
 
 					FileUtil.writeTextFile(file, text);
 
 					if (settings.isLogComponentDescriptors()) {
-						log.info("### file={}", file);
-						log.info("### descriptor : \n{}", text);
+						log.info("### descriptor file = {}", file);
+						log.info("### descriptor text = \n{}", text);
 					}
 
 					descriptorCounter++;
@@ -332,7 +274,7 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 			log.info("### nanos per class  = {}", timeRate);
 		}
 
-		return NOTHING;
+		return BuildResult.NORMAL;
 
 	}
 
@@ -354,102 +296,21 @@ public class BuildParticipantSCR extends MojoExecutionBuildParticipant {
 
 	}
 
-	protected enum ClassesSelector {
+	/**
+	 * .../target/classes/OSGI-INF/service-component
+	 * 
+	 * @throws Exception
+	 */
+	protected File getOutputDirectorySCR() throws Exception {
 
-		COMPILE() {
+		final String targetDirectory = getPropertyString(PROP_TARGET_DIRCTORY);
 
-			@Override
-			public List<String> getSourceRoots(final BuildParticipantSCR builder) {
-				return builder.getSession().getCurrentProject()
-						.getCompileSourceRoots();
-			}
+		final File outputMainClasses = COMPILE.getOutputDirectory(this);
 
-			@Override
-			public List<String> getClasspathElements(
-					final BuildParticipantSCR builder)
-					throws DependencyResolutionRequiredException {
-				return builder.getSession().getCurrentProject()
-						.getCompileClasspathElements();
-			}
+		final File outputDirectorySCR = new File(outputMainClasses,
+				targetDirectory);
 
-			@Override
-			public File getOutputDirectory(final BuildParticipantSCR builder) {
-				final IWorkspaceRoot root = ResourcesPlugin.getWorkspace()
-						.getRoot();
-				final IFolder outputLocation = root.getFolder(builder
-						.getMavenProjectFacade().getOutputLocation());
-				return outputLocation.getLocation().toFile();
-			}
-
-		},
-
-		TESTING() {
-
-			@Override
-			public List<String> getSourceRoots(final BuildParticipantSCR builder) {
-				return builder.getSession().getCurrentProject()
-						.getTestCompileSourceRoots();
-			}
-
-			@Override
-			public List<String> getClasspathElements(
-					final BuildParticipantSCR builder)
-					throws DependencyResolutionRequiredException {
-				return builder.getSession().getCurrentProject()
-						.getTestClasspathElements();
-			}
-
-			@Override
-			public File getOutputDirectory(final BuildParticipantSCR builder) {
-				final IWorkspaceRoot root = ResourcesPlugin.getWorkspace()
-						.getRoot();
-				final IFolder outputLocation = root.getFolder(builder
-						.getMavenProjectFacade().getTestOutputLocation());
-				return outputLocation.getLocation().toFile();
-			}
-
-		},
-
-		;
-
-		/** absolute file path */
-		public abstract List<String> getSourceRoots(BuildParticipantSCR builder);
-
-		/** absolute file path */
-		public abstract List<String> getClasspathElements(
-				BuildParticipantSCR builder)
-				throws DependencyResolutionRequiredException;
-
-		/** absolute file path */
-		public abstract File getOutputDirectory(BuildParticipantSCR builder);
-
-		//
-
-		public ClassLoader getClassLoader(final BuildParticipantSCR builder)
-				throws Exception {
-
-			final List<String> pathList = getClasspathElements(builder);
-
-			final URL[] entryUrlArray = new URL[pathList.size()];
-
-			int index = 0;
-			for (final String path : pathList) {
-				final URL entryURL = new File(path).toURI().toURL();
-				log.debug("\t### found class path entry = " + entryURL);
-				entryUrlArray[index++] = entryURL;
-			}
-
-			/** m2e class loader */
-			final ClassLoader TCCL = Thread.currentThread()
-					.getContextClassLoader();
-
-			/** class path loader for a selector scope */
-			final URLClassLoader loader = new URLClassLoader(entryUrlArray,
-					TCCL);
-
-			return loader;
-
-		}
+		return outputDirectorySCR;
 
 	}
 

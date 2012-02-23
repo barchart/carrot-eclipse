@@ -1,10 +1,19 @@
-package com.carrotgarden.m2e.scr;
+package com.carrotgarden.m2e.scr.prop;
 
-public class PropsSCR {
+public class Props {
+	//
+
+	/** carrot maven plugin configuration properties */
+
+	/** String; */
+	public static final String PROP_GOAL_CLEAN = "clean";
+
+	/** String; */
+	public static final String PROP_GOAL_GENERATE = "generate";
 
 	//
 
-	/** maven plugin configuration properties */
+	/** carrot maven plugin configuration properties */
 
 	/** Map <String, String> */
 	public static final String PROP_ECLIPSE_SETTINGS = "eclipseSettings";

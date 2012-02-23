@@ -1,38 +1,38 @@
-package com.carrotgarden.m2e.scr;
+package com.carrotgarden.m2e.scr.prop;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SettingsSCR {
+public class Settings {
 
 	private final Map<String, String> settings;
 
-	public SettingsSCR(final Map<String, String> settings) {
+	public Settings(final Map<String, String> settings) {
 		this.settings = //
 		settings == null ? new HashMap<String, String>() : settings;
 	}
 
 	public boolean isLogExcludedServices() {
 		return Boolean.parseBoolean(settings
-				.get(PropsSCR.LOG_EXCLUDED_SERVICES));
+				.get(Props.LOG_EXCLUDED_SERVICES));
 	}
 
 	public boolean isLogComponentDescriptors() {
 		return Boolean.parseBoolean(settings
-				.get(PropsSCR.LOG_COMPONENT_DESCRIPTORS));
+				.get(Props.LOG_COMPONENT_DESCRIPTORS));
 	}
 
 	public boolean isLogInvocationDetails() {
 		return Boolean.parseBoolean(settings
-				.get(PropsSCR.LOG_INVOCATION_DETAILS));
+				.get(Props.LOG_INVOCATION_DETAILS));
 	}
 
 	public boolean isLogBuildTimes() {
-		return Boolean.parseBoolean(settings.get(PropsSCR.LOG_BUILD_TIMES));
+		return Boolean.parseBoolean(settings.get(Props.LOG_BUILD_TIMES));
 	}
 
 	public boolean isLogErrorTraces() {
-		return Boolean.parseBoolean(settings.get(PropsSCR.LOG_ERROR_TRACES));
+		return Boolean.parseBoolean(settings.get(Props.LOG_ERROR_TRACES));
 	}
 
 }
