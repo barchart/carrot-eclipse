@@ -1,0 +1,12 @@
+2/22/12 1:20:32 PM CST: [INFO] ######### getBuildParticipant MavenProject: com.carrotgarden.eclipse:com.carrotgarden.m2e.scr.testing:1.0.1-SNAPSHOT @ /work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/pom.xml com.carrotgarden.maven:carrot-maven-scr-plugin:1.1.0-SNAPSHOT:generate {execution: generate}
+2/22/12 1:20:32 PM CST: [INFO] Using 'UTF-8' encoding to copy filtered resources.
+2/22/12 1:20:32 PM CST: [INFO] Copying 0 resource
+2/22/12 1:20:32 PM CST: [INFO] Using 'UTF-8' encoding to copy filtered resources.
+2/22/12 1:20:32 PM CST: [INFO] Copying 0 resource
+2/22/12 1:20:32 PM CST: [INFO] ### project=MavenProject: com.carrotgarden.eclipse:com.carrotgarden.m2e.scr.testing:1.0.1-SNAPSHOT @ /work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/pom.xml
+2/22/12 1:20:32 PM CST: [INFO] ### execution=com.carrotgarden.maven:carrot-maven-scr-plugin:1.1.0-SNAPSHOT:generate {execution: generate}
+2/22/12 1:20:32 PM CST: [INFO] ### incremental=true
+2/22/12 1:20:32 PM CST: [INFO] ### outputMainClasses=/work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/target/classes
+2/22/12 1:20:32 PM CST: [INFO] ### sourceRoots : [/work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/src/main/java]
+2/22/12 1:20:32 PM CST: [INFO] ### rootPath : /work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/src/main/java
+2/22/12 1:20:32 PM CST: [INFO] ### javaName : bench.DummyComp_00

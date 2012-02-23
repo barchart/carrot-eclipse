@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature
+		url="features/com.carrotgarden.m2e.scr.feature_1.0.1.qualifier.jar"
+		id="com.carrotgarden.m2e.scr.feature" version="1.0.1.qualifier">
+		<category name="com.carrotgarden.m2e.scr" />
+	</feature>
+	<category-def name="com.carrotgarden.m2e.scr" label="com.carrotgarden.m2e.scr" />
+</site>

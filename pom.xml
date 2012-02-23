@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.carrotgarden.base</groupId>
+		<artifactId>carrot-archon</artifactId>
+		<version>1.1.0</version>
+	</parent>
+
+	<groupId>com.carrotgarden.eclipse</groupId>
+	<artifactId>carrot-eclipse</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<scm>
+		<url>https://github.com/carrot-garden/carrot-eclipse</url>
+		<connection>scm:git:git://github.com/carrot-garden/carrot-eclipse.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/carrot-garden/carrot-eclipse.git</developerConnection>
+	</scm>
+
+	<properties>
+
+		<carrotJavaVersion>1.6</carrotJavaVersion>
+
+	</properties>
+
+</project>
