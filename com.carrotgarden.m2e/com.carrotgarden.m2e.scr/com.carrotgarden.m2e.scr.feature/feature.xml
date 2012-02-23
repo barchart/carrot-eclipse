@@ -6,11 +6,12 @@
       provider-name="carrotgarden">
 
    <description>
-      com.carrotgarden.m2e.scr
+      com.carrotgarden.m2e.scr description
    </description>
 
    <copyright>
-      com.carrotgarden.m2e.scr
+      com.carrotgarden.m2e.scr 
+copyright
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">
@@ -18,7 +19,8 @@
    </license>
 
    <url>
-      <update label="com.carrotgarden.m2e.scr" url="http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-1.0.0"/>
+      <update label="com.carrotgarden.m2e.scr - version 1 series" url="http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-1.0.0"/>
+      <discovery label="m2e/1.1.0/N/LATEST/" url="https://repository.sonatype.org/content/repositories/forge-sites/m2e/1.1.0/N/LATEST/"/>
    </url>
 
    <requires>

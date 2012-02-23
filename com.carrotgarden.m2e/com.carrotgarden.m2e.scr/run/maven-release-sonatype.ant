@@ -8,6 +8,8 @@
 			<arg value="release:perform" />
 			<arg value="--define" />
 			<arg value="resume=false" />
+			<arg value="--define" />
+			<arg value="eclipse.p2.mirrors=false" />
 		</exec>
 	</target>
 

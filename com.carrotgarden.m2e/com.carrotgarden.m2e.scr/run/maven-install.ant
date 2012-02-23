@@ -6,6 +6,8 @@
 		<exec executable="mvn">
 			<arg value="clean" />
 			<arg value="install" />
+			<arg value="--define" />
+			<arg value="eclipse.p2.mirrors=false" />
 		</exec>
 	</target>
 

@@ -13,6 +13,12 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<scm>
+		<url>https://github.com/carrot-garden/carrot-eclipse</url>
+		<connection>scm:git:git://github.com/carrot-garden/carrot-eclipse.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/carrot-garden/carrot-eclipse.git</developerConnection>
+	</scm>
+
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
