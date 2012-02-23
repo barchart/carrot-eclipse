@@ -1,0 +1,16 @@
+<project default="maven" basedir="./..">
+
+	<echo message="basedir : ${basedir}" />
+
+	<target name="maven">
+		<exec executable="mvn">
+			<arg value="clean" />
+			<arg value="install" />
+			<arg value="--define" />
+			<arg value="eclipse.p2.mirrors=false" />
+			<arg value="--activate-profiles" />
+			<arg value="publish-eclipse" />
+		</exec>
+	</target>
+
+</project>

@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>com.carrotgarden.eclipse</groupId>
 		<artifactId>com.carrotgarden.m2e.scr</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>com.carrotgarden.m2e.scr.plugin</artifactId>

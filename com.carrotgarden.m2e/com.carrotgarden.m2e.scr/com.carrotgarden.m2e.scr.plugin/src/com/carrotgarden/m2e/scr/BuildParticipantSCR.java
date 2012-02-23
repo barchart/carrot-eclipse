@@ -41,7 +41,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 		final BuildType type = BuildType.fromKind(kind);
 
-		log.info("#########################################################");
+		log.info("###################################################################");
 		log.info("### m2e - carrot-maven-scr-plugin ({})", type.comment);
 
 		switch (type.action) {
@@ -56,7 +56,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 			break;
 		}
 
-		log.info("#########################################################");
+		log.info("###################################################################");
 
 		return NOTHING;
 
@@ -98,31 +98,38 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 		try {
 
-			final Map<String, String> eclipseSettings = getPropertyMap(PROP_ECLIPSE_SETTINGS);
-
-			//
-
-			final Settings settings = new Settings(eclipseSettings);
-
-			isLogErrorTraces = settings.isLogErrorTraces();
-
 			switch (type.action) {
 			case DO_FULL:
+
 				/** invoke maven plugin */
+
 				super.build(type.kind, monitor);
+
 				break;
+
 			case DO_INCR:
+
 				/** process locally */
+
+				final Map<String, String> eclipseSettings = getPropertyMap(PROP_ECLIPSE_SETTINGS);
+				final Settings settings = new Settings(eclipseSettings);
+				isLogErrorTraces = settings.isLogErrorTraces();
+
 				if (getPropertyBoolean(PROP_PROCESS_COMPILE)) {
 					buildGenerate(settings, COMPILE, type, monitor);
 				}
 				if (getPropertyBoolean(PROP_PROCESS_TESTING)) {
 					buildGenerate(settings, TESTING, type, monitor);
 				}
+
 				break;
+
 			default:
+
 				log.error("unexpected invocation type = " + type.comment);
+
 				break;
+
 			}
 
 			return NOTHING;
