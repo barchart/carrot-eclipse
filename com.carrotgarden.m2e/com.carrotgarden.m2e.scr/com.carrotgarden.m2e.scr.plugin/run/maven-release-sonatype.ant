@@ -8,6 +8,7 @@
 			<arg value="release:perform" />
 			<arg value="--define" />
 			<arg value="resume=false" />
+			<arg value="--show-version" />
 		</exec>
 	</target>
 

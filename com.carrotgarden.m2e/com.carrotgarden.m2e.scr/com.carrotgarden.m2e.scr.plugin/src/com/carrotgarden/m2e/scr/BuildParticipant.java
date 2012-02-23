@@ -8,10 +8,14 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
+import org.apache.maven.execution.MavenSession;
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
 import org.apache.maven.plugin.MojoExecution;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.m2e.core.MavenPlugin;
 import org.eclipse.m2e.core.embedder.IMaven;
 import org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant;
@@ -44,29 +48,34 @@ public class BuildParticipant extends MojoExecutionBuildParticipant {
 	//
 
 	protected boolean getPropertyBoolean(final String name) throws Exception {
-		return getMaven().getMojoParameterValue(getSession(),
-				getMojoExecution(), name, Boolean.class);
+		return getParameterValue(name, Boolean.class);
 	}
 
 	protected String getPropertyString(final String name) throws Exception {
-		return getMaven().getMojoParameterValue(getSession(),
-				getMojoExecution(), name, String.class);
+		return getParameterValue(name, String.class);
 	}
 
 	@SuppressWarnings("unchecked")
 	protected List<String> getPropertyList(final String name) throws Exception {
-		return getMaven().getMojoParameterValue(getSession(),
-				getMojoExecution(), name, List.class);
+		return getParameterValue(name, List.class);
 	}
 
 	@SuppressWarnings("unchecked")
 	protected Set<String> getPropertySet(final String name) throws Exception {
-		return getMaven().getMojoParameterValue(getSession(),
-				getMojoExecution(), name, Set.class);
+		return getParameterValue(name, Set.class);
 	}
 
 	@SuppressWarnings("unchecked")
 	protected Map<String, String> getPropertyMap(final String name)
+			throws Exception {
+		return getParameterValue(name, Map.class);
+	}
+
+	//
+
+	/** does not work */
+	@SuppressWarnings("unchecked")
+	protected Map<String, String> getPropertyMapXXX(final String name)
 			throws Exception {
 		return getMaven().getMojoParameterValue(getSession(),
 				getMojoExecution(), name, Map.class);
@@ -226,6 +235,41 @@ public class BuildParticipant extends MojoExecutionBuildParticipant {
 			return loader;
 
 		}
+
+	}
+
+	//
+
+	/**
+	 * 
+	 * this version of parameter lookup seems to work
+	 * 
+	 * {@link org.eclipse.m2e.core.project.configurator.AbstractProjectConfigurator}
+	 * 
+	 * */
+	protected <T> T getParameterValue(final String parameter,
+			final Class<T> asType) throws CoreException {
+
+		final MavenSession session = getSession();
+		final MojoExecution mojoExecution = getMojoExecution();
+
+		//
+
+		final Plugin plugin = mojoExecution.getPlugin();
+
+		final PluginExecution execution = new PluginExecution();
+		execution.setConfiguration(mojoExecution.getConfiguration());
+
+		final String goal = mojoExecution.getGoal();
+
+		//
+
+		final T value = getMaven().getMojoParameterValue(parameter, asType,
+				session, plugin, execution, goal);
+
+		// log.info("@@@ value=" + value);
+
+		return value;
 
 	}
 

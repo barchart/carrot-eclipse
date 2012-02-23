@@ -65,6 +65,8 @@ public class BuildParticipantSCR extends BuildParticipant {
 	protected Set<IProject> buildClean(final BuildType type,
 			final IProgressMonitor monitor) throws Exception {
 
+		log.info("### clean");
+
 		final File outputDirectorySCR = getOutputDirectorySCR();
 
 		//
@@ -74,7 +76,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 		final boolean isDelete = FileUtil.deleteDir(outputDirectorySCR);
 
 		if (!isDelete) {
-			log.error("### delete failed");
+			log.warn("### delete failed");
 		}
 
 		//
@@ -84,7 +86,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 		final boolean isCreate = outputDirectorySCR.mkdirs();
 
 		if (!isCreate) {
-			log.error("### create failed");
+			log.warn("### create failed");
 		}
 
 		return NOTHING;
@@ -277,6 +279,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 			final long timeDiff = timeFinish - timeStart;
 			final long timeRate = descriptorCounter == 0 ? 0 : timeDiff
 					/ descriptorCounter;
+			log.info("### class count = {}", descriptorCounter);
 			log.info("### nanos total = {}", timeDiff);
 			log.info("### nanos per class  = {}", timeRate);
 		}

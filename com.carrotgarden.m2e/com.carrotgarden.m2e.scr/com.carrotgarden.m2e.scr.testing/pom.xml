@@ -40,13 +40,13 @@
 					<excludedServices>
 						<service>java.lang.Runnable</service>
 					</excludedServices>
-					<!-- <eclipseSettings> -->
-					<!-- <logBuildTimes>true</logBuildTimes> -->
-					<!-- <logExcludedServices>true</logExcludedServices> -->
-					<!-- <logInvocationDetails>true</logInvocationDetails> -->
-					<!-- <logErrorTraces>true</logErrorTraces> -->
-					<!-- <logComponentDescriptors>true</logComponentDescriptors> -->
-					<!-- </eclipseSettings> -->
+					<eclipseSettings>
+						<logBuildTimes>false</logBuildTimes>
+						<logExcludedServices>false</logExcludedServices>
+						<logInvocationDetails>false</logInvocationDetails>
+						<logErrorTraces>false</logErrorTraces>
+						<logComponentDescriptors>true</logComponentDescriptors>
+					</eclipseSettings>
 				</configuration>
 				<executions>
 					<execution>

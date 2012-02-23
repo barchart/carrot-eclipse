@@ -68,6 +68,18 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- enforce java version -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<source>${carrotJavaVersion}</source>
+					<target>${carrotJavaVersion}</target>
+				</configuration>
+			</plugin>
+
 		</plugins>
 
 	</build>
