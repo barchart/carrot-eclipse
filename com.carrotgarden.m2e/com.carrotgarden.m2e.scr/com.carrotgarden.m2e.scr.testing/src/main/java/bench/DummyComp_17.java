@@ -14,7 +14,7 @@ factory = "factory-17", property = { "first-name=carrot", "last-name=garden" } /
 )
 public class DummyComp_17 implements Cloneable, Runnable {
 
-	// ///////////////////////
+	// ///////////////////
 
 	@Property
 	static final String HELLO = "hello";
