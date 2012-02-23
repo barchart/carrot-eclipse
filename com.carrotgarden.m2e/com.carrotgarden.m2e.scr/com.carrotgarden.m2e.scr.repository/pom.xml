@@ -17,6 +17,26 @@
 
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>build-qualifier</id>
+						<goals>
+							<goal>build-qualifier</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<metadataRepositoryName>com.carrotgarden.m2e.scr repository</metadataRepositoryName>
+					<artifactRepositoryName>com.carrotgarden.m2e.scr artifacts</artifactRepositoryName>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>

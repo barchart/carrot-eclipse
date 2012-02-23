@@ -6,16 +6,20 @@
       provider-name="carrotgarden">
 
    <description>
-      com.carrotgarden.m2e.scr.feature
+      com.carrotgarden.m2e.scr
    </description>
 
    <copyright>
-      com.carrotgarden.m2e.scr.feature
+      com.carrotgarden.m2e.scr
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">
       com.carrotgarden.m2e.scr.feature
    </license>
+
+   <url>
+      <update label="com.carrotgarden.m2e.scr" url="http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-1.0.0"/>
+   </url>
 
    <requires>
       <import plugin="org.eclipse.core.resources" version="3.4.0" match="greaterOrEqual"/>
@@ -35,20 +39,6 @@
 
    <plugin
          id="com.carrotgarden.m2e.scr.plugin"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.carrotgarden.osgi.carrot-osgi-anno-scr-core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.carrotgarden.osgi.carrot-osgi-anno-scr-make"
          download-size="0"
          install-size="0"
          version="0.0.0"
