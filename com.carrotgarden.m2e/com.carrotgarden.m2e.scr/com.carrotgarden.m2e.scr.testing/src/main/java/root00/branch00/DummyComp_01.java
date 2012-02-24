@@ -11,8 +11,6 @@ import org.osgi.service.component.annotations.Reference;
 @Component
 public class DummyComp_01 implements Cloneable, Runnable {
 
-	//////////////
-	/////////////////
 
 	@Reference(name = "1133-3311")
 	void bind(final Executor executor) {
@@ -27,12 +25,5 @@ public class DummyComp_01 implements Cloneable, Runnable {
 
 	}
 	
-	//
-	
-	// ///////////////////
 
 }
-
-//
-// /////////
-////

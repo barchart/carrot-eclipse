@@ -25,3 +25,4 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="3.4.0",
  org.slf4j.api;bundle-version="1.6.4",
  ch.qos.logback.classic;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.carrotgarden.m2e.scr.PluginSCR

@@ -68,7 +68,6 @@ public class DummyComp_08 implements Cloneable, Runnable {
 	void unbind(final Runnable tasker) {
 	}
 
-	////////////////
 	
 	@Override
 	public void run() {

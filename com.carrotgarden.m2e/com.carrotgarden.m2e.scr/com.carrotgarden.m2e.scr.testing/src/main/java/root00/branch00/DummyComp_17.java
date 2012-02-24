@@ -112,10 +112,11 @@ public class DummyComp_17 implements Cloneable, Runnable {
 	void unset2(final Runnable tasker) {
 	}
 
-	// /////////
 
 	@Override
 	public void run() {
 	}
 
 }
+
+//

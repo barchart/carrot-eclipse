@@ -220,17 +220,13 @@ public class BuildParticipant extends MojoExecutionBuildParticipant {
 			int index = 0;
 			for (final String path : pathList) {
 				final URL entryURL = new File(path).toURI().toURL();
-				log.debug("\t### found class path entry = " + entryURL);
+				log.debug("\t### class path entry = " + entryURL);
 				entryUrlArray[index++] = entryURL;
 			}
 
-			/** m2e class loader */
-			final ClassLoader TCCL = Thread.currentThread()
-					.getContextClassLoader();
-
 			/** class path loader for a selector scope */
 			final URLClassLoader loader = new URLClassLoader(entryUrlArray,
-					TCCL);
+					getClass().getClassLoader());
 
 			return loader;
 

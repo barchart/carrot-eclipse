@@ -39,26 +39,55 @@ public class BuildParticipantSCR extends BuildParticipant {
 	public Set<IProject> build(final int kind, final IProgressMonitor monitor)
 			throws Exception {
 
-		final BuildType type = BuildType.fromKind(kind);
+		boolean isLogErrorTraces = true;
 
-		log.info("###################################################################");
-		log.info("### m2e - carrot-maven-scr-plugin ({})", type.comment);
+		try {
 
-		switch (type.action) {
-		case DO_FULL:
-			buildClean(type, monitor);
-			buildGenerate(type, monitor);
-			break;
-		case DO_INCR:
-			buildGenerate(type, monitor);
-			break;
-		default:
-			break;
+			isLogErrorTraces = getSettings().isLogErrorTraces();
+
+			final BuildType type = BuildType.fromKind(kind);
+
+			log.info("##############################################################################");
+			log.info("### " + PluginSCR.getHeader() + " : " + type.comment);
+
+			switch (type.action) {
+			case DO_FULL:
+				buildClean(type, monitor);
+				buildGenerate(type, monitor);
+				break;
+			case DO_INCR:
+				buildGenerate(type, monitor);
+				break;
+			default:
+				break;
+			}
+
+			log.info("##############################################################################");
+
+			return NOTHING;
+
+		} catch (final Exception e) {
+
+			final StackTraceElement[] trace = e.getStackTrace();
+			if (trace != null && isLogErrorTraces) {
+				log.warn("### error trace");
+				for (final StackTraceElement entry : trace) {
+					log.warn("### {}", entry);
+				}
+			}
+
+			final String message = e.getMessage();
+
+			/** print it m2e colsole log */
+			log.error("### message = '{}'", message);
+
+			/** print it eclipse error log */
+			PluginSCR.logError(message, e);
+
+			/** let m2e handle error */
+			throw e;
+
 		}
-
-		log.info("###################################################################");
-
-		return NOTHING;
 
 	}
 
@@ -96,67 +125,45 @@ public class BuildParticipantSCR extends BuildParticipant {
 	protected Set<IProject> buildGenerate(final BuildType type,
 			final IProgressMonitor monitor) throws Exception {
 
-		boolean isLogErrorTraces = true;
+		switch (type.action) {
+		case DO_FULL:
 
-		try {
+			/** invoke maven plugin */
 
-			switch (type.action) {
-			case DO_FULL:
+			super.build(type.kind, monitor);
 
-				/** invoke maven plugin */
+			break;
 
-				super.build(type.kind, monitor);
+		case DO_INCR:
 
-				break;
+			/** process locally */
 
-			case DO_INCR:
-
-				/** process locally */
-
-				final Map<String, String> eclipseSettings = getPropertyMap(PROP_ECLIPSE_SETTINGS);
-				final Settings settings = new Settings(eclipseSettings);
-				isLogErrorTraces = settings.isLogErrorTraces();
-
-				if (getPropertyBoolean(PROP_PROCESS_COMPILE)) {
-					buildGenerate(settings, COMPILE, type, monitor);
-				}
-				if (getPropertyBoolean(PROP_PROCESS_TESTING)) {
-					buildGenerate(settings, TESTING, type, monitor);
-				}
-
-				break;
-
-			default:
-
-				log.error("unexpected invocation type = " + type.comment);
-
-				break;
-
+			if (getPropertyBoolean(PROP_PROCESS_COMPILE)) {
+				buildGenerate(COMPILE, type, monitor);
+			}
+			if (getPropertyBoolean(PROP_PROCESS_TESTING)) {
+				buildGenerate(TESTING, type, monitor);
 			}
 
-			return NOTHING;
+			break;
 
-		} catch (final Exception e) {
+		default:
 
-			final StackTraceElement[] trace = e.getStackTrace();
-			if (trace != null && isLogErrorTraces) {
-				log.warn("### error trace");
-				for (final StackTraceElement entry : trace) {
-					log.warn("### {}", entry);
-				}
-			}
+			log.error("unexpected invocation type = " + type.comment);
 
-			log.error("### message = '{}'", e.getMessage());
-
-			throw e;
+			break;
 
 		}
 
+		return NOTHING;
+
 	}
 
-	protected BuildResult buildGenerate(final Settings settings,
-			final ClassesSelector selector, final BuildType type,
-			final IProgressMonitor monitor) throws Exception {
+	protected BuildResult buildGenerate(final ClassesSelector selector,
+			final BuildType type, final IProgressMonitor monitor)
+			throws Exception {
+
+		final Settings settings = getSettings();
 
 		final List<String> sourceRoots = selector.getSourceRoots(this);
 
@@ -191,7 +198,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 		/** descriptor generator */
 		final Maker maker = new Maker(excludedServices);
 
-		/** compile vs testing */
+		/** scope: compile vs testing */
 		final ClassLoader loader = selector.getClassLoader(this);
 
 		/** iterate over source root folders */
@@ -237,8 +244,8 @@ public class BuildParticipantSCR extends BuildParticipant {
 				/** com.example.impl.Component */
 				final String sourceName = sourcePath.replace("/", ".");
 
-				final Class<?> sourceKlaz = Class.forName(sourceName, true,
-						loader);
+				final Class<?> sourceKlaz = //
+				Class.forName(sourceName, true, loader);
 
 				if (settings.isLogInvocationDetails()) {
 					log.info("### name = {}", sourceKlaz.getName());
@@ -285,6 +292,20 @@ public class BuildParticipantSCR extends BuildParticipant {
 		}
 
 		return BuildResult.NORMAL;
+
+	}
+
+	private Settings settings;
+
+	protected Settings getSettings() throws Exception {
+
+		if (settings == null) {
+			final Map<String, String> eclipseSettings = //
+			getPropertyMap(PROP_ECLIPSE_SETTINGS);
+			settings = new Settings(eclipseSettings);
+		}
+
+		return settings;
 
 	}
 

@@ -2,14 +2,16 @@ package root00.branch00;
 
 import java.util.concurrent.Executor;
 
+
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Property;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
+//
 // should ignore runnable
-
+//
 @Component
 public class DummyComp_02 implements Cloneable, Runnable {
 

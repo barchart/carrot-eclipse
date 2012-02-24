@@ -6,7 +6,7 @@ import org.osgi.service.component.annotations.Property;
 @Component
 public class DummyComp_00 {
 
-	// //////////////////////
+	// /////////////
 
 	private String name;
 
@@ -16,3 +16,12 @@ public class DummyComp_00 {
 }
 
 //
+//
+//////
+///////////////////////////s//////////////////////
+//
+//////
+//
+////////
+///
+///////////////////////
