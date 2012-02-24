@@ -8,6 +8,10 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
+//
+///////////////////
+//
+
 /** should ignore runnable */
 @Component(//
 factory = "factory-17", property = { "first-name=carrot", "last-name=garden" } //
@@ -111,7 +115,6 @@ public class DummyComp_17 implements Cloneable, Runnable {
 
 	void unset2(final Runnable tasker) {
 	}
-
 
 	@Override
 	public void run() {
