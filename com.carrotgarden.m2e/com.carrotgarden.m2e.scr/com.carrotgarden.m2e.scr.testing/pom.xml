@@ -41,7 +41,7 @@
 						<service>java.lang.Runnable</service>
 					</excludedServices>
 					<eclipseSettings>
-						<logBuildTimes>false</logBuildTimes>
+						<logBuildTimes>true</logBuildTimes>
 						<logExcludedServices>false</logExcludedServices>
 						<logInvocationDetails>false</logInvocationDetails>
 						<logErrorTraces>false</logErrorTraces>

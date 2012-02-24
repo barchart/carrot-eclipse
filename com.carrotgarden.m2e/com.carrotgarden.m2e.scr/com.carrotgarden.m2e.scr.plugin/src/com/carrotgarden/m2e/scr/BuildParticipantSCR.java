@@ -47,7 +47,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 			final BuildType type = BuildType.fromKind(kind);
 
-			log.info("##############################################################################");
+			log.info("#########################################################################################");
 			log.info("### " + PluginSCR.getHeader() + " : " + type.comment);
 
 			switch (type.action) {
@@ -62,7 +62,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 				break;
 			}
 
-			log.info("##############################################################################");
+			log.info("#########################################################################################");
 
 			return NOTHING;
 
@@ -287,8 +287,8 @@ public class BuildParticipantSCR extends BuildParticipant {
 			final long timeRate = descriptorCounter == 0 ? 0 : timeDiff
 					/ descriptorCounter;
 			log.info("### class count = {}", descriptorCounter);
-			log.info("### nanos total = {}", timeDiff);
-			log.info("### nanos per class  = {}", timeRate);
+			log.info("### millis total = {}", timeDiff / 1000000);
+			log.info("### millis per class  = {}", timeRate / 1000000);
 		}
 
 		return BuildResult.NORMAL;

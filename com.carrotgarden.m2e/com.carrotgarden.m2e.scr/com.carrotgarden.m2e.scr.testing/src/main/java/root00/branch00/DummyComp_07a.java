@@ -15,8 +15,10 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 @Component
 public class DummyComp_07a implements Cloneable, Runnable {
 
+	//
+
 	@Property
-	static final String VALUE= "hello";
+	static final String VALUE = "hello";
 
 	@Reference(name = "1133")
 	void bind(final Executor executor) {
@@ -32,7 +34,7 @@ public class DummyComp_07a implements Cloneable, Runnable {
 	void removeExec(final Executor executor) {
 	}
 
-	@Reference(name = "113311", policy=ReferencePolicy.DYNAMIC, cardinality=ReferenceCardinality.MULTIPLE)
+	@Reference(name = "113311", policy = ReferencePolicy.DYNAMIC, cardinality = ReferenceCardinality.MULTIPLE)
 	void bind(final Runnable tasker) {
 	}
 
@@ -40,7 +42,7 @@ public class DummyComp_07a implements Cloneable, Runnable {
 	}
 
 	//
-	
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -48,4 +50,4 @@ public class DummyComp_07a implements Cloneable, Runnable {
 
 }
 
-///////////////
+// /////////////
