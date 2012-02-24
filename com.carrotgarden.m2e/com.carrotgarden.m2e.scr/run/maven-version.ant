@@ -11,7 +11,7 @@
 			<arg value="--define" />
 			<arg value="tycho.mode=maven" />
 			<arg value="--define" />
-			<arg value="newVersion=1.1.1-SNAPSHOT" />
+			<arg value="newVersion=1.1.2-SNAPSHOT" />
 		</exec>
 	</target>
 

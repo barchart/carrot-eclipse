@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>com.carrotgarden.m2e.scr</artifactId>
-	<version>1.1.1-SNAPSHOT</version>
+	<version>1.1.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<scm>
