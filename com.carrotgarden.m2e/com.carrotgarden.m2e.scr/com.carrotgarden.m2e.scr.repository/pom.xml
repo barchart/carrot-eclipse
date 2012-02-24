@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.carrotgarden.eclipse</groupId>
 		<artifactId>com.carrotgarden.m2e.scr</artifactId>
-		<version>1.1.0-SNAPSHOT</version>
+		<version>1.1.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>com.carrotgarden.m2e.scr.repository</artifactId>
@@ -15,9 +15,19 @@
 	<properties>
 
 		<amazonName>eclipse.carrotgarden.com</amazonName>
-		<amazonFolder>${project.parent.artifactId}-1.0.0</amazonFolder>
+		<amazonFolder>${project.parent.artifactId}-${unqualifiedVersion}</amazonFolder>
 
 	</properties>
+
+	<repositories>
+
+		<!-- <repository> -->
+		<!-- <id>carrot-m2e-scr</id> -->
+		<!-- <layout>p2</layout> -->
+		<!-- <url>http://${amazonName}/${amazonFolder}</url> -->
+		<!-- </repository> -->
+
+	</repositories>
 
 	<build>
 		<plugins>

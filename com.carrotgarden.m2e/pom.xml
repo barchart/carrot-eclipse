@@ -43,6 +43,8 @@
 
 	</repositories>
 
+	<!-- http://www.eclipse.org/tycho/sitedocs/index.html -->
+
 	<build>
 		<plugins>
 
