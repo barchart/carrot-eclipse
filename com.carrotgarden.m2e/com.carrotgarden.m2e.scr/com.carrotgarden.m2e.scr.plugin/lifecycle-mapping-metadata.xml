@@ -8,7 +8,7 @@
 			<pluginExecutionFilter>
 				<groupId>com.carrotgarden.maven</groupId>
 				<artifactId>carrot-maven-scr-plugin</artifactId>
-				<versionRange>[0,)</versionRange>
+				<versionRange>[1.1.0,1.2.0)</versionRange>
 				<goals>
 					<goal>clean</goal>
 					<goal>generate</goal>
