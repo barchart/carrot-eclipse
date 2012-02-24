@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.carrotgarden.m2e.scr.feature"
-      label="m2e - carrot-maven-scr-plugin connector"
+      label="m2e - carrot-maven-scr-plugin"
       version="1.1.0.qualifier"
       provider-name="carrotgarden">
 
