@@ -9,6 +9,7 @@
 			<arg value="--define" />
 			<arg value="eclipse.p2.mirrors=false" />
 			<arg value="--show-version" />
+			<arg value="--update-snapshots" />
 		</exec>
 	</target>
 
