@@ -16,6 +16,9 @@
 	<echo message="repodir : ${repodir}" />
 	<echo message="tempdir : ${tempdir}" />
 
+	<echo message="source : ${source}" />
+	<echo message="target : ${target}" />
+
 	<target name="git">
 
 		<echo message="select master" />
