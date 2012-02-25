@@ -15,15 +15,21 @@
 
 	<target name="git">
 
+		<echo message="select master" />
+
 		<exec executable="git">
 			<arg value="checkout" />
 			<arg value="master" />
 		</exec>
 
+		<echo message="copy repo" />
+
 		<copy todir="${target}">
 			<fileset dir="${source}" />
 		</copy>
-		
+
+		<echo message="commit master" />
+
 		<exec executable="git">
 			<arg value="commit" />
 			<arg value="-a" />
@@ -35,14 +41,31 @@
 			<arg value="status" />
 		</exec>
 
+		<echo message="select gh-pages" />
+
 		<exec executable="git">
 			<arg value="checkout" />
 			<arg value="gh-pages" />
 		</exec>
 
+		<echo message="commit repo" />
+
+		<exec executable="git">
+			<arg value="add" />
+			<arg value="${target}" />
+		</exec>
+
+		<exec executable="git">
+			<arg value="commit" />
+			<arg value="-m" />
+			<arg value="publish" />
+		</exec>
+
 		<exec executable="git">
 			<arg value="status" />
 		</exec>
+
+		<echo message="select master" />
 
 		<exec executable="git">
 			<arg value="checkout" />
