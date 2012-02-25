@@ -38,7 +38,7 @@ https://github.com/carrot-garden/carrot-maven
 	</overview>
 	<p2>
 		<repositoryUrl>
-			http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-LATEST/
+			http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/
 		</repositoryUrl>
 		<iuId>com.carrotgarden.m2e.scr.feature.feature.group</iuId>
 		<lifecycleMappingIU>

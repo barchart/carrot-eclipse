@@ -33,7 +33,7 @@ https://github.com/carrot-garden/carrot-maven
    </license>
 
    <url>
-      <update label="CarrotGarden M2E SCR" url="http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-LATEST"/>
+      <update label="CarrotGarden M2E SCR" url="http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/"/>
       <discovery label="m2e/1.1.0/N/LATEST/" url="https://repository.sonatype.org/content/repositories/forge-sites/m2e/1.1.0/N/LATEST/"/>
    </url>
 
