@@ -44,7 +44,9 @@
 		</exec>
 
 		<exec executable="git">
-			<arg value="status" />
+			<arg value="push" />
+			<arg value="origin" />
+			<arg value="master" />
 		</exec>
 
 		<echo message="select gh-pages" />
@@ -74,7 +76,9 @@
 		</exec>
 
 		<exec executable="git">
-			<arg value="status" />
+			<arg value="push" />
+			<arg value="origin" />
+			<arg value="gh-pages" />
 		</exec>
 
 		<echo message="select master" />
@@ -82,10 +86,6 @@
 		<exec executable="git">
 			<arg value="checkout" />
 			<arg value="master" />
-		</exec>
-
-		<exec executable="git">
-			<arg value="status" />
 		</exec>
 
 	</target>
