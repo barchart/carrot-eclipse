@@ -6,7 +6,7 @@
 	<property name="repodir" value="${rootdir}/repository" />
 
 	<property name="source" value="${basedir}/${project}.repository/target/repository" />
-	<property name="target" value="${repodir}/${project}" />
+	<property name="target" value="${repodir}/${project}-LATEST" />
 
 	<echo message="project : ${project}" />
 	<echo message="basedir : ${basedir}" />
