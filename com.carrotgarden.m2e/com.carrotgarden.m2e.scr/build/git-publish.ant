@@ -4,14 +4,17 @@
 
 	<property name="rootdir" value="${basedir}/../.." />
 	<property name="repodir" value="${rootdir}/repository" />
+	<property name="tempdir" value="${java.io.tmpdir}/${project}" />
 
 	<property name="source" value="${basedir}/${project}.repository/target/repository" />
 	<property name="target" value="${repodir}/${project}-LATEST" />
+
 
 	<echo message="project : ${project}" />
 	<echo message="basedir : ${basedir}" />
 	<echo message="rootdir : ${rootdir}" />
 	<echo message="repodir : ${repodir}" />
+	<echo message="tempdir : ${tempdir}" />
 
 	<target name="git">
 
@@ -24,7 +27,7 @@
 
 		<echo message="copy repo" />
 
-		<copy todir="${target}">
+		<copy todir="${tempdir}">
 			<fileset dir="${source}" />
 		</copy>
 
@@ -47,6 +50,12 @@
 			<arg value="checkout" />
 			<arg value="gh-pages" />
 		</exec>
+
+		<echo message="copy repo" />
+
+		<copy todir="${target}">
+			<fileset dir="${tempdir}" />
+		</copy>
 
 		<echo message="commit repo" />
 
