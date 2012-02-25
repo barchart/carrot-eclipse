@@ -3,7 +3,7 @@
 	<property name="root" value="${basedir}/../.." />
 	<property name="repo" value="${root}/repository" />
 
-	<property name="project" value="${ant.project.name}" />
+	<basename property="project" file="${basedir}"/>
 
 	<property name="source" value="${basedir}/com.carrotgarden.m2e.scr.repository/target/repository" />
 
