@@ -57,7 +57,7 @@
 			<fileset dir="${tempdir}" />
 		</copy>
 
-		<echo message="commit repo" />
+		<echo message="commit gh-pages" />
 
 		<exec executable="git">
 			<arg value="add" />
