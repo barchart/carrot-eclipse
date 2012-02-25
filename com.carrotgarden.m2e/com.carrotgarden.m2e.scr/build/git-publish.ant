@@ -1,16 +1,17 @@
 <project default="git" basedir="./..">
 
-	<property name="root" value="${basedir}/../.." />
-	<property name="repo" value="${root}/repository" />
+	<basename property="project" file="${basedir}" />
 
-	<basename property="project" file="${basedir}"/>
+	<property name="rootdir" value="${basedir}/../.." />
+	<property name="repodir" value="${root}/repository" />
 
-	<property name="source" value="${basedir}/com.carrotgarden.m2e.scr.repository/target/repository" />
+	<property name="source" value="${basedir}/${project}.repository/target/repository" />
+	<property name="target" value="${repodir}/${project}" />
 
 	<echo message="project : ${project}" />
 	<echo message="basedir : ${basedir}" />
-	<echo message="root : ${root}" />
-	<echo message="repo : ${repo}" />
+	<echo message="rootdir : ${rootdir}" />
+	<echo message="repodir : ${repodir}" />
 
 	<target name="git">
 
@@ -19,6 +20,10 @@
 			<arg value="master" />
 		</exec>
 
+		<copy todir="${target}">
+			<fileset dir="${source}" />
+		</copy>
+		
 		<exec executable="git">
 			<arg value="commit" />
 			<arg value="-a" />
