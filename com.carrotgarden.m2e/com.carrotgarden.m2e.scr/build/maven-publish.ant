@@ -10,6 +10,7 @@
 			<arg value="eclipse.p2.mirrors=false" />
 			<arg value="--activate-profiles" />
 			<arg value="publish-eclipse" />
+			<arg value="--show-version" />
 		</exec>
 	</target>
 

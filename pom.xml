@@ -27,41 +27,4 @@
 
 	</properties>
 
-	<profiles>
-
-		<profile>
-			<id>publish-eclipse</id>
-			<properties>
-				<serverId>com.carrotgarden.eclipse.s3</serverId>
-				<serverURL>s3://${amazonName}</serverURL>
-				<serverFolder>/${amazonFolder}</serverFolder>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>wagon-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>upload</id>
-								<phase>package</phase>
-								<goals>
-									<goal>upload</goal>
-								</goals>
-								<configuration>
-									<fromDir>target/repository</fromDir>
-									<includes>**/*</includes>
-									<serverId>${serverId}</serverId>
-									<url>${serverURL}</url>
-									<toDir>${serverFolder}</toDir>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-	</profiles>
-
 </project>

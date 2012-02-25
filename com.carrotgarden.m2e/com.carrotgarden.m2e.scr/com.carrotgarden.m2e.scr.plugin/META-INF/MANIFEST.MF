@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: m2e - carrot-maven-scr-plugin
+Bundle-Name: CarrotGarden M2E SCR
 Bundle-SymbolicName: com.carrotgarden.m2e.scr.plugin;singleton:=true
 Bundle-Version: 1.1.3.qualifier
-Bundle-Vendor: carrotgarden
+Bundle-Vendor: Andrei Pozolotin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .,
  target/library/carrot-osgi-anno-scr-core-1.1.1.jar,

@@ -1,0 +1,48 @@
+<catalogItem>
+	<categoryId>org.eclipse.m2e.discovery.category.lifecycles</categoryId>
+	<m2e-versions>1.0,1.1</m2e-versions>
+	<groupId>lifecycles</groupId>
+	<id>org.eclipse.m2e.discovery.lifecycles.com.carrotgarden.m2e.scr</id>
+	<kind>lifecycles</kind>
+	<license>EPL</license>
+	<name>CarrotGarden M2E SCR</name>
+	<description>
+<![CDATA[
+OSGI Service-Component Descriptor Generator 
+for Declarative Services Annotations (RFC 0172)
+]]>
+	</description>
+	<overview>
+		<url>
+			https://github.com/carrot-garden/carrot-eclipse/
+		</url>
+		<summary>
+<![CDATA[
+CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator
+according to a proposal described in RFC 0172 Declarative Services Annotations:
+http://www.osgi.org/download/osgi-early-draft-2011-09.pdf
+
+CarrotGarden M2E SCR is an m2e connector for a corresponding maven plugin:
+http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22
+
+CarrotGarden M2E SCR allows for interactive SCR component descriptor updates
+in eclipse which will be compatible with your non-interactive jenkins maven builds.
+
+Sources and Examples,
+for m2e connnector:
+https://github.com/carrot-garden/carrot-eclipse
+for related maven plugin:
+https://github.com/carrot-garden/carrot-maven
+]]>
+		</summary>
+	</overview>
+	<p2>
+		<repositoryUrl>
+			http://eclipse.carrotgarden.com/com.carrotgarden.m2e.scr-LATEST/
+		</repositoryUrl>
+		<iuId>com.carrotgarden.m2e.scr.feature.feature.group</iuId>
+		<lifecycleMappingIU>
+			<iuId>com.carrotgarden.m2e.scr</iuId>
+		</lifecycleMappingIU>
+	</p2>
+</catalogItem>

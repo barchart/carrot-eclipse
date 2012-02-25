@@ -15,7 +15,8 @@
 	<properties>
 
 		<amazonName>eclipse.carrotgarden.com</amazonName>
-		<amazonFolder>${project.parent.artifactId}-${unqualifiedVersion}</amazonFolder>
+		<amazonFolderVersion>${project.parent.artifactId}-${unqualifiedVersion}</amazonFolderVersion>
+		<amazonFolderCurrent>${project.parent.artifactId}-LATEST</amazonFolderCurrent>
 
 	</properties>
 
@@ -24,7 +25,7 @@
 		<!-- <repository> -->
 		<!-- <id>carrot-m2e-scr</id> -->
 		<!-- <layout>p2</layout> -->
-		<!-- <url>http://${amazonName}/${amazonFolder}</url> -->
+		<!-- <url>http://${amazonName}/${amazonFolderVersion}</url> -->
 		<!-- </repository> -->
 
 	</repositories>
@@ -66,10 +67,54 @@
 		</plugins>
 	</build>
 
-	<!-- <profiles> -->
-	<!-- <profile> -->
-	<!-- <id>publish-eclipse</id> -->
-	<!-- </profile> -->
-	<!-- </profiles> -->
+	<profiles>
+
+		<profile>
+			<id>publish-eclipse</id>
+			<properties>
+				<serverId>com.carrotgarden.eclipse.s3</serverId>
+				<serverURL>s3://${amazonName}</serverURL>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>upload-version</id>
+								<phase>package</phase>
+								<goals>
+									<goal>upload</goal>
+								</goals>
+								<configuration>
+									<fromDir>target/repository</fromDir>
+									<includes>**/*</includes>
+									<serverId>${serverId}</serverId>
+									<url>${serverURL}</url>
+									<toDir>/${amazonFolderVersion}</toDir>
+								</configuration>
+							</execution>
+							<execution>
+								<id>upload-current</id>
+								<phase>package</phase>
+								<goals>
+									<goal>upload</goal>
+								</goals>
+								<configuration>
+									<fromDir>target/repository</fromDir>
+									<includes>**/*</includes>
+									<serverId>${serverId}</serverId>
+									<url>${serverURL}</url>
+									<toDir>/${amazonFolderCurrent}</toDir>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 </project>

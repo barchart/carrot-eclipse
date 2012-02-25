@@ -3,7 +3,7 @@
 <setAttribute key="additional_plugins"/>
 <booleanAttribute key="append.args" value="true"/>
 <booleanAttribute key="askclear" value="true"/>
-<booleanAttribute key="automaticAdd" value="true"/>
+<booleanAttribute key="automaticAdd" value="false"/>
 <booleanAttribute key="automaticValidate" value="true"/>
 <stringAttribute key="bootstrap" value=""/>
 <stringAttribute key="checked" value="[NONE]"/>
@@ -12,10 +12,9 @@
 <booleanAttribute key="clearwslog" value="false"/>
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/m2e scr"/>
 <booleanAttribute key="default" value="false"/>
-<stringAttribute key="deselected_workspace_plugins" value="com.carrotgarden.base.carrot-maven-scr-plugin-test-1,com.carrotgarden.eclipse.com.carrotgarden.m2e.scr.testing,com.carrotgarden.osgi.carrot-osgi-anno-scr-core,com.carrotgarden.osgi.carrot-osgi-anno-scr-make,org.sonatype.m2e.antlr,org.sonatype.m2e.modello"/>
 <stringAttribute key="featureDefaultLocation" value="workspace"/>
 <stringAttribute key="featurePluginResolution" value="workspace"/>
-<booleanAttribute key="includeOptional" value="true"/>
+<booleanAttribute key="includeOptional" value="false"/>
 <stringAttribute key="location" value="${workspace_loc}/../runtime-EclipseApplication-m2e-scr"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
