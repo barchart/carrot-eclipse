@@ -1,3 +1,4 @@
+.project
 .classpath
 .settings/
 
@@ -7,5 +8,3 @@ logs/
 
 release.properties
 pom.xml.*
-
-/repository
