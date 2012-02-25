@@ -64,7 +64,7 @@
 
 		<exec executable="git">
 			<arg value="add" />
-			<arg value="${target}" />
+			<arg value="${target}/*.*" />
 		</exec>
 
 		<exec executable="git">
