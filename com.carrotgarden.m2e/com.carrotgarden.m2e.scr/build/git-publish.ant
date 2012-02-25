@@ -54,9 +54,9 @@
 			<arg value="gh-pages" />
 		</exec>
 
-		<echo message="copy repo" overwrite="true" verbose="true" />
+		<echo message="copy repo" />
 
-		<copy todir="${target}">
+		<copy todir="${target}" overwrite="true" verbose="true">
 			<fileset dir="${tempdir}" />
 		</copy>
 
