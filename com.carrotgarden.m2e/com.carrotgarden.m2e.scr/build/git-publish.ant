@@ -3,7 +3,7 @@
 	<basename property="project" file="${basedir}" />
 
 	<property name="rootdir" value="${basedir}/../.." />
-	<property name="repodir" value="${root}/repository" />
+	<property name="repodir" value="${rootdir}/repository" />
 
 	<property name="source" value="${basedir}/${project}.repository/target/repository" />
 	<property name="target" value="${repodir}/${project}" />
