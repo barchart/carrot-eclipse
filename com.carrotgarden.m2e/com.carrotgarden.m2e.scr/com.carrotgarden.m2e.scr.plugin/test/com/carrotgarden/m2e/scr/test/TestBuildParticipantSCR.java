@@ -13,9 +13,9 @@ import org.eclipse.m2e.core.embedder.IMaven;
 import org.eclipse.m2e.core.project.configurator.MojoExecutionBuildParticipant;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
-public class TestBuildParticipant extends MojoExecutionBuildParticipant {
+public class TestBuildParticipantSCR extends MojoExecutionBuildParticipant {
 
-	public TestBuildParticipant(final MojoExecution execution) {
+	public TestBuildParticipantSCR(final MojoExecution execution) {
 		super(execution, true);
 	}
 

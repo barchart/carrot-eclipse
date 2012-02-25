@@ -1,0 +1,284 @@
+java.lang.IllegalArgumentException
+	at org.sonatype.tycho.m2e.internal.OsgiBundleProjectConfigurator.generateBundleManifest(OsgiBundleProjectConfigurator.java:76)
+	at org.sonatype.tycho.m2e.internal.OsgiBundleProjectConfigurator.configureRawClasspath(OsgiBundleProjectConfigurator.java:178)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.invokeJavaProjectConfigurators(AbstractJavaProjectConfigurator.java:168)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.configure(AbstractJavaProjectConfigurator.java:128)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:109)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:414)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:351)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:74)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+	
+<?xml version="1.0" encoding="UTF-8"?>
+<lifecycleMappingMetadata>
+  <lifecycleMappings>
+    <lifecycleMapping>
+      <pluginExecutions>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <versionRange>2.4.1</versionRange>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>com.carrotgarden.maven</groupId>
+            <artifactId>carrot-maven-scr-plugin</artifactId>
+            <versionRange>[1.1.0,1.2.0)</versionRange>
+            <goals>
+              <goal>generate</goal>
+              <goal>clean</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>carrot-maven-scr-plugin</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>groovy-maven-plugin</artifactId>
+            <versionRange>[1,)</versionRange>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <ignore />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <versionRange>[0,)</versionRange>
+            <goals>
+              <goal>maven-version</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <ignore />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <versionRange>[1,)</versionRange>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <ignore />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>groovy-maven-plugin</artifactId>
+            <versionRange>[1,)</versionRange>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <ignore />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <versionRange>[2.4,)</versionRange>
+            <goals>
+              <goal>resources</goal>
+              <goal>testResources</goal>
+              <goal>copy-resources</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <execute />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <versionRange>[2.0,)</versionRange>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+            <parameters>
+              <compilerId>javac</compilerId>
+            </parameters>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>org.eclipse.m2e.jdt.javaConfigurator</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <versionRange>[2.4,)</versionRange>
+            <goals>
+              <goal>resources</goal>
+              <goal>testResources</goal>
+              <goal>copy-resources</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <execute />
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <versionRange>[2.0,)</versionRange>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+            <parameters>
+              <compilerId>javac</compilerId>
+            </parameters>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>org.eclipse.m2e.jdt.javaConfigurator</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <versionRange>2.12</versionRange>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>com.carrotgarden.maven</groupId>
+            <artifactId>carrot-maven-scr-plugin</artifactId>
+            <versionRange>[1.1.0,1.2.0)</versionRange>
+            <goals>
+              <goal>generate</goal>
+              <goal>clean</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>carrot-maven-scr-plugin</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <versionRange>[1.0.0,)</versionRange>
+            <goals>
+              <goal>manifest</goal>
+              <goal>bundle</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>maven-bundle-plugin</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <versionRange>[1.0.0,)</versionRange>
+            <goals>
+              <goal>manifest</goal>
+              <goal>bundle</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <action>
+            <configurator>
+              <id>maven-bundle-plugin</id>
+            </configurator>
+          </action>
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-install-plugin</artifactId>
+            <versionRange>2.3.1</versionRange>
+            <goals>
+              <goal>install</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <versionRange>2.3.7</versionRange>
+            <goals>
+              <goal>install</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <versionRange>2.7</versionRange>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <versionRange>2.3.7</versionRange>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+        <pluginExecution>
+          <pluginExecutionFilter>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <versionRange>3.0</versionRange>
+            <goals>
+              <goal>site</goal>
+            </goals>
+          </pluginExecutionFilter>
+          <ignore />
+        </pluginExecution>
+      </pluginExecutions>
+    </lifecycleMapping>
+  </lifecycleMappings>
+</lifecycleMappingMetadata>
+	

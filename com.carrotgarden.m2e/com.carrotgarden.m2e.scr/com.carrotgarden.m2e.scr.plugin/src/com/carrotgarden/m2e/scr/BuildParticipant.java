@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
  *      "https://github.com/sonatype/sisu-build-api/tree/master/src/main/java/org/sonatype/plexus/build/incremental"
  *      />
  */
-public class BuildParticipant extends MojoExecutionBuildParticipant {
+class BuildParticipant extends MojoExecutionBuildParticipant {
 
 	private static final Logger log = LoggerFactory
 			.getLogger(BuildParticipant.class);

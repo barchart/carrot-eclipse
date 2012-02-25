@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.carrotgarden.eclipse</groupId>
 		<artifactId>com.carrotgarden.m2e.scr</artifactId>
-		<version>1.1.2-SNAPSHOT</version>
+		<version>1.1.3-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>com.carrotgarden.m2e.scr.feature</artifactId>

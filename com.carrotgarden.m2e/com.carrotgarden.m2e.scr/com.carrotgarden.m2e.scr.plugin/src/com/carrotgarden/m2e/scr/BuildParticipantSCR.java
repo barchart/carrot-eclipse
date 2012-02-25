@@ -66,7 +66,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 			return NOTHING;
 
-		} catch (final Exception e) {
+		} catch (final Throwable e) {
 
 			final StackTraceElement[] trace = e.getStackTrace();
 			if (trace != null && isLogErrorTraces) {
@@ -85,7 +85,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 			PluginSCR.logError(message, e);
 
 			/** let m2e handle error */
-			throw e;
+			throw new Exception(e);
 
 		}
 
@@ -123,7 +123,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 	}
 
 	protected Set<IProject> buildGenerate(final BuildType type,
-			final IProgressMonitor monitor) throws Exception {
+			final IProgressMonitor monitor) throws Throwable {
 
 		switch (type.action) {
 		case DO_FULL:
@@ -161,7 +161,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 	protected BuildResult buildGenerate(final ClassesSelector selector,
 			final BuildType type, final IProgressMonitor monitor)
-			throws Exception {
+			throws Throwable {
 
 		final Settings settings = getSettings();
 
@@ -193,6 +193,7 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 		final long timeStart = System.nanoTime();
 
+		int allclassesCounter = 0;
 		int descriptorCounter = 0;
 
 		/** descriptor generator */
@@ -244,23 +245,20 @@ public class BuildParticipantSCR extends BuildParticipant {
 				/** com.example.impl.Component */
 				final String sourceName = sourcePath.replace("/", ".");
 
-				final Class<?> sourceKlaz = //
-				Class.forName(sourceName, true, loader);
-
 				if (settings.isLogInvocationDetails()) {
-					log.info("### name = {}", sourceKlaz.getName());
+					log.info("### name = {}", sourceName);
 				}
 
 				/** produce component descriptor */
-				final String text = maker.make(sourceKlaz);
+				final String text = maker.make(loader, sourceName);
 
 				final boolean isComponent = (text != null);
 
 				if (isComponent) {
 
 					/** com.example.impl.Component.xml */
-					final String descriptorFilename = sourceKlaz.getName()
-							+ "." + outputExtensionSCR;
+					final String descriptorFilename = sourceName + "."
+							+ outputExtensionSCR;
 
 					final File file = new File(outputDirectorySCR,
 							descriptorFilename);
@@ -276,6 +274,8 @@ public class BuildParticipantSCR extends BuildParticipant {
 
 				}
 
+				allclassesCounter++;
+
 			}
 
 		}
@@ -286,9 +286,10 @@ public class BuildParticipantSCR extends BuildParticipant {
 			final long timeDiff = timeFinish - timeStart;
 			final long timeRate = descriptorCounter == 0 ? 0 : timeDiff
 					/ descriptorCounter;
-			log.info("### class count = {}", descriptorCounter);
+			log.info("### total class count = {}", allclassesCounter);
+			log.info("### component class count = {}", descriptorCounter);
 			log.info("### millis total = {}", timeDiff / 1000000);
-			log.info("### millis per class  = {}", timeRate / 1000000);
+			log.info("### millis per component  = {}", timeRate / 1000000);
 		}
 
 		return BuildResult.NORMAL;
