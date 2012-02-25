@@ -30,7 +30,7 @@
 
 		<echo message="copy repo" />
 
-		<copy todir="${tempdir}">
+		<copy todir="${tempdir}" overwrite="true" verbose="true">
 			<fileset dir="${source}" />
 		</copy>
 
@@ -54,7 +54,7 @@
 			<arg value="gh-pages" />
 		</exec>
 
-		<echo message="copy repo" />
+		<echo message="copy repo" overwrite="true" verbose="true" />
 
 		<copy todir="${target}">
 			<fileset dir="${tempdir}" />
