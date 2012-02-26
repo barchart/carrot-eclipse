@@ -1,4 +1,4 @@
-package com.carrotgarden.m2e.scr.klaz;
+package com.carrotgarden.m2e.scr.test.klaz;
 
 public interface IClassLoadStrategy {
 

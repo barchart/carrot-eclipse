@@ -1,4 +1,4 @@
-package com.carrotgarden.m2e.scr.test;
+package com.carrotgarden.m2e.scr.test.participant;
 
 import java.io.File;
 import java.util.Set;
