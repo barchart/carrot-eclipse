@@ -1,38 +1,42 @@
 # CarrotGarden SCR
 
-CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator
+CarrotGarden SCR provides 
+OSGI Service-Component descriptor generator
 according to a proposal described in 
-
 [RFC 0172 Declarative Services Annotations]
 (http://www.osgi.org/download/osgi-early-draft-2011-09.pdf)
 
+CarrotGarden SCR allows for interactive SCR component descriptor updates
+in eclipse which will be compatible with your non-interactive jenkins maven builds.
 
-## site
+CarrotGarden SCR is comprised of: annotations, maven plugin, eclipse connector.
 
-maven info site
-[carrot-maven-scr-plugin](http://carrot-garden.github.com/carrot-maven/site/carrot-maven-scr-plugin/)
+## OSGI Annotations
 
-## repo
-
-eclipse update site 
-[com.carrotgarden.m2e.scr-LATEST](http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/)
-
-## info
+[carrot-osgi-anno-scr]
+(https://github.com/carrot-garden/carrot-osgi/tree/master/carrot-osgi-anno-scr)
+provides osgi annotations and annotation processor 
 
 
- CarrotGarden M2E SCR is an m2e connector for a corresponding maven plugin:
- http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22
+## Maven Plugin
 
- CarrotGarden M2E SCR allows for interactive SCR component descriptor updates
- in eclipse which will be compatible with your non-interactive jenkins maven builds.
+[carrot-maven-scr-plugin]
+(https://github.com/carrot-garden/carrot-maven/tree/master/carrot-maven-scr-plugin)
+incorporates annotation processor in maven build.
 
- Sources and Examples,
+learn more on  
+[maven info site](http://carrot-garden.github.com/carrot-maven/site/carrot-maven-scr-plugin/)
 
- for annotations:
- https://github.com/carrot-garden/carrot-osgi
+and get 
+[latest version of the plugin]
+( http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22)
+
+## Eclipse Connector
+
+[com.carrotgarden.m2e.scr]
+(https://github.com/carrot-garden/carrot-eclipse/tree/master/com.carrotgarden.m2e/com.carrotgarden.m2e.scr)
+is an m2e eclipse connector 
  
- for maven plugin:
- https://github.com/carrot-garden/carrot-maven
-
- for m2e connnector:
- https://github.com/carrot-garden/carrot-eclipse
+you can add it to your eclpipse form 
+[this update site]
+(http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/)
