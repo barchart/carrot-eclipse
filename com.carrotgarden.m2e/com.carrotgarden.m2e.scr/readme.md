@@ -1,3 +1,10 @@
+# CarrotGarden SCR
+
+CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator
+according to a proposal described in 
+[RFC 0172 Declarative Services Annotations]
+(http://www.osgi.org/download/osgi-early-draft-2011-09.pdf)
+
 
 ## site
 
@@ -11,9 +18,6 @@ eclipse update site
 
 ## info
 
- CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator
- according to a proposal described in RFC 0172 Declarative Services Annotations:
- http://www.osgi.org/download/osgi-early-draft-2011-09.pdf
 
  CarrotGarden M2E SCR is an m2e connector for a corresponding maven plugin:
  http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22
