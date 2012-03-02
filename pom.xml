@@ -21,6 +21,11 @@
 		<developerConnection>scm:git:ssh://git@github.com/carrot-garden/carrot-eclipse.git</developerConnection>
 	</scm>
 
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/carrot-garden/carrot-eclipse/issues</url>
+	</issueManagement>
+
 	<properties>
 
 		<carrotJavaVersion>1.6</carrotJavaVersion>
