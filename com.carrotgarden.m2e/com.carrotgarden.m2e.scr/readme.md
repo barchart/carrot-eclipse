@@ -2,6 +2,7 @@
 
 CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator
 according to a proposal described in 
+
 [RFC 0172 Declarative Services Annotations]
 (http://www.osgi.org/download/osgi-early-draft-2011-09.pdf)
 
