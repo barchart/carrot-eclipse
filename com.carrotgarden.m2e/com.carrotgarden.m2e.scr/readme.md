@@ -24,8 +24,9 @@ provides osgi annotations and annotation processor
 (https://github.com/carrot-garden/carrot-maven/tree/master/carrot-maven-scr-plugin)
 incorporates annotation processor in maven build.
 
-learn more on  
-[maven info site](http://carrot-garden.github.com/carrot-maven/site/carrot-maven-scr-plugin/)
+learn more on
+[maven info site]
+(http://carrot-garden.github.com/carrot-maven/site/carrot-maven-scr-plugin/)
 
 and get 
 [latest version of the plugin]
