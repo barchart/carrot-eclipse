@@ -1,6 +1,6 @@
 ### info
 
-this is a m2e eclipse/maven integration for  
+this is a m2e eclipse/maven integration for
 [carrot-maven-scr-plugin]
 (https://github.com/carrot-garden/carrot-maven/tree/master/carrot-maven-scr-plugin)
 
