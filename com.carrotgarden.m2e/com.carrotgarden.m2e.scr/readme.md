@@ -1,5 +1,11 @@
 ### info
 
+this is a m2e eclipse/maven integration for  
+[carrot-maven-scr-plugin]
+(https://github.com/carrot-garden/carrot-maven/tree/master/carrot-maven-scr-plugin)
+
+### more
+
 learn more:
 [CarrotGarden SCR]
 (https://github.com/carrot-garden/carrot-garden.github.com/blob/master/carrot-garden-scr.md)

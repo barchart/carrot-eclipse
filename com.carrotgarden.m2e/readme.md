@@ -1,6 +1,6 @@
 ## info
 
-varous eclipse related projects
+these are m2e eclipse/maven integration projects
 
 ## repo
 
