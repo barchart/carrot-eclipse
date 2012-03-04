@@ -1,3 +1,11 @@
+====
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+====
+
 2/22/12 1:16:19 PM CST: [INFO] ######### getBuildParticipant LOAD
 2/22/12 1:16:19 PM CST: [INFO] ######### getBuildParticipant INIT
 2/22/12 1:16:19 PM CST: [INFO] ######### getBuildParticipant MavenProject: com.carrotgarden.eclipse:com.carrotgarden.m2e.scr.testing:1.0.1-SNAPSHOT @ /work/git/carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.testing/pom.xml com.carrotgarden.maven:carrot-maven-scr-plugin:1.1.0-SNAPSHOT:generate {execution: generate}

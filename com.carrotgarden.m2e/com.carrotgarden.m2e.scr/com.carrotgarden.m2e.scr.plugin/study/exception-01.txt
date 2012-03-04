@@ -1,3 +1,11 @@
+====
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+====
+
 java.lang.IllegalArgumentException
 	at org.sonatype.tycho.m2e.internal.OsgiBundleProjectConfigurator.generateBundleManifest(OsgiBundleProjectConfigurator.java:76)
 	at org.sonatype.tycho.m2e.internal.OsgiBundleProjectConfigurator.configureRawClasspath(OsgiBundleProjectConfigurator.java:178)
