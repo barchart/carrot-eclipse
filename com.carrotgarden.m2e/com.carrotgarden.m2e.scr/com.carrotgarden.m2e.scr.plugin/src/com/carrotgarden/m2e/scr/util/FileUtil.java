@@ -127,4 +127,10 @@ public class FileUtil {
 
 	}
 
+	public static String getClassNameFromClassPath(final String path) {
+
+		return path.replace(File.separator, ".");
+
+	}
+
 }

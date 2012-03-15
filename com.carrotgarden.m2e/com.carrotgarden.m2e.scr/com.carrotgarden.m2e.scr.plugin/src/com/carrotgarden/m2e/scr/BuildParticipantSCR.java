@@ -250,7 +250,8 @@ public class BuildParticipantSCR extends BuildParticipant {
 				final String sourcePath = relative.substring(0, dotIndex);
 
 				/** com.example.impl.Component */
-				final String sourceName = sourcePath.replace("/", ".");
+				final String sourceName = sourcePath.replace(//
+						File.separator, ".");
 
 				if (settings.isLogInvocationDetails()) {
 					log.info("### name = {}", sourceName);
