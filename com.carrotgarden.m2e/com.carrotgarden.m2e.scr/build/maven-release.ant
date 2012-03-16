@@ -13,13 +13,18 @@
 
 	<target name="maven">
 		<exec executable="mvn">
+
 			<arg value="release:prepare" />
 			<arg value="release:perform" />
+
+			<arg value="--show-version" />
+
 			<arg value="--define" />
 			<arg value="resume=false" />
+
 			<arg value="--define" />
 			<arg value="eclipse.p2.mirrors=false" />
-			<arg value="--show-version" />
+
 		</exec>
 	</target>
 

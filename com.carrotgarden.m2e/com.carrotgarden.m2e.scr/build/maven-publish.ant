@@ -13,13 +13,18 @@
 
 	<target name="maven">
 		<exec executable="mvn">
+
 			<arg value="clean" />
 			<arg value="package" />
+
+			<arg value="--show-version" />
+
 			<arg value="--define" />
 			<arg value="eclipse.p2.mirrors=false" />
+
 			<arg value="--activate-profiles" />
 			<arg value="publish-eclipse" />
-			<arg value="--show-version" />
+
 		</exec>
 	</target>
 

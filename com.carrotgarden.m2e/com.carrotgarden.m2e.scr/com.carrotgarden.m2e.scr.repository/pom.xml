@@ -15,8 +15,8 @@
 	<properties>
 
 		<amazonName>eclipse.carrotgarden.com</amazonName>
-		<amazonFolderVersion>${project.parent.artifactId}-${unqualifiedVersion}</amazonFolderVersion>
 		<amazonFolderCurrent>${project.parent.artifactId}-LATEST</amazonFolderCurrent>
+		<amazonFolderVersion>${project.parent.artifactId}-${unqualifiedVersion}</amazonFolderVersion>
 
 	</properties>
 
@@ -60,11 +60,12 @@
 				<configuration>
 					<createArtifactRepository>true</createArtifactRepository>
 					<includeAllDependencies>false</includeAllDependencies>
-					<compress>true</compress>
+					<compress>false</compress>
 				</configuration>
 			</plugin>
 
 		</plugins>
+
 	</build>
 
 	<profiles>
