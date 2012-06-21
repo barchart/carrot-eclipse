@@ -2,7 +2,7 @@
 <?artifactRepository version='1.1.0'?>
 <repository name='com.carrotgarden.m2e.scr.repository' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1331907175656'/>
+    <property name='p2.timestamp' value='1340296006786'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
@@ -10,23 +10,23 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
   <artifacts size='2'>
-    <artifact classifier='org.eclipse.update.feature' id='com.carrotgarden.m2e.scr.feature' version='1.1.4.201203161412'>
-      <properties size='6'>
-        <property name='artifact.size' value='2797'/>
-        <property name='download.size' value='2797'/>
-        <property name='maven-groupId' value='com.carrotgarden.eclipse'/>
-        <property name='maven-artifactId' value='com.carrotgarden.m2e.scr.feature'/>
-        <property name='maven-version' value='1.1.4-SNAPSHOT'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='com.carrotgarden.m2e.scr.plugin' version='1.1.4.201203161412'>
+    <artifact classifier='osgi.bundle' id='com.carrotgarden.m2e.scr.plugin' version='1.1.5.201206211626'>
       <properties size='5'>
-        <property name='artifact.size' value='506969'/>
-        <property name='download.size' value='506969'/>
+        <property name='artifact.size' value='507414'/>
+        <property name='download.size' value='507414'/>
         <property name='maven-groupId' value='com.carrotgarden.eclipse'/>
         <property name='maven-artifactId' value='com.carrotgarden.m2e.scr.plugin'/>
-        <property name='maven-version' value='1.1.4-SNAPSHOT'/>
+        <property name='maven-version' value='1.1.5-SNAPSHOT'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='com.carrotgarden.m2e.scr.feature' version='1.1.5.201206211626'>
+      <properties size='6'>
+        <property name='artifact.size' value='2919'/>
+        <property name='download.size' value='2919'/>
+        <property name='maven-groupId' value='com.carrotgarden.eclipse'/>
+        <property name='maven-artifactId' value='com.carrotgarden.m2e.scr.feature'/>
+        <property name='maven-version' value='1.1.5-SNAPSHOT'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
   </artifacts>
