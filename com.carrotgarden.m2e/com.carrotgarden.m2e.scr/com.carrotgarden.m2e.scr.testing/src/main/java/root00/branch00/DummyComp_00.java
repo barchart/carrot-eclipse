@@ -7,8 +7,11 @@
  */
 package root00.branch00;
 
+import java.util.Map;
+
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Property;
+import org.osgi.service.component.annotations.Reference;
 
 @Component
 public class DummyComp_00 {//
@@ -17,6 +20,20 @@ public class DummyComp_00 {//
 	private String name;
 
 	@Property
-	static final String PROP = "prop value";
+	static final String PROP = "prop value"; //
+
+	//
+
+	@SuppressWarnings("unused")
+	private Runnable task;
+
+	@Reference
+	protected void bind(final Runnable task, final Map<?, ?> map) {
+
+	}
+
+	protected void unbind(final Runnable task, final Map<?, ?> map) {
+
+	}
 
 }
