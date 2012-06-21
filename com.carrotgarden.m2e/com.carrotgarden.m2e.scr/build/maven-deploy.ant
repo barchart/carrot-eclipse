@@ -13,8 +13,6 @@
 
 	<target name="maven">
 
-		<arg value="--show-version" />
-
 		<exec executable="mvn">
 
 			<arg value="clean" />
@@ -24,6 +22,8 @@
 
 			<arg value="--define" />
 			<arg value="eclipse.p2.mirrors=false" />
+
+			<arg value="--show-version" />
 
 		</exec>
 	</target>

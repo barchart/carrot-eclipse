@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+
+-->
 <site>
-   <feature url="features/com.carrotgarden.m2e.scr.feature_1.1.4.qualifier.jar" id="com.carrotgarden.m2e.scr.feature" version="1.1.4.qualifier">
+   <feature url="features/com.carrotgarden.m2e.scr.feature_1.1.5.qualifier.jar" id="com.carrotgarden.m2e.scr.feature" version="1.1.5.qualifier">
       <category name="com.carrotgarden.m2e.scr"/>
    </feature>
    <category-def name="com.carrotgarden.m2e.scr" label="com.carrotgarden.m2e.scr"/>

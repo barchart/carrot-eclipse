@@ -15,6 +15,7 @@ public class DummyComp_00 {
 
 	// //////////////////////
 
+	@SuppressWarnings("unused")
 	private String name;
 
 	@Property
