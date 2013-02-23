@@ -13,10 +13,6 @@ various Eclipse related projects
 
 ## repo
 
-eclipse update sites
- 
-[com.carrotgarden.m2e.scr-LATEST]
-(http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/)
+eclipse update sites - see into project families
 
-[com.carrotgarden.m2e.scr-TESTER]
-(http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-TESTER/)
+ 
