@@ -20,7 +20,7 @@ public class DummyComp_00 {//
 	private String name;
 
 	@Property
-	static final String PROP = "prop value 01"; //
+	static final String PROP = "prop value 00"; //
 
 	//
 
