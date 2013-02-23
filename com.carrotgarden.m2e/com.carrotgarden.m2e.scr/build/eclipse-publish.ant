@@ -1,0 +1,39 @@
+<!--
+
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+
+-->
+<project default="eclipse" basedir="./..">
+
+	<echo message="basedir : ${basedir}" />
+
+	<target name="eclipse">
+		
+		<property name="source" value="/work/git/carrot-eclipse.gh/repository/com.carrotgarden.m2e.scr-LATEST"/>
+		<property name="source.features" value="${source}/features"/>
+		<property name="source.plugins" value="${source}/plugins"/>
+
+		<!--
+			http://wiki.eclipse.org/Equinox/p2/Publisher 
+		-->
+		<p2.publish.featuresAndBundles 
+			repository="file:${basedir}/target/test-repo" 
+			repositoryName="test-repo-name" 
+			append="true"
+			compress="false"
+			publishArtifacts="true"
+			>
+			
+			<features dir="${source.features}"/>
+			
+			<bundles dir="${source.plugins}"/>
+
+		</p2.publish.featuresAndBundles>
+
+	</target>
+
+</project>

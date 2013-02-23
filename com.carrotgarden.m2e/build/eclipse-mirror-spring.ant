@@ -1,0 +1,35 @@
+<!--
+
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+
+-->
+<project default="eclipse" basedir="./..">
+
+	<echo message="basedir : ${basedir}" />
+
+	<target name="eclipse">
+
+		<echo>spring-ide</echo>
+		
+		<p2.mirror verbose="true">
+			
+			<repository location="file:/tmp/spring-ide" name="spring-ide" append="true" />
+			
+			<source>
+				<repository location="http://springide.org/updatesite" />
+			</source>
+			
+			<iu id="Core / Spring IDE" version="" />
+			<iu id="Extensions / Spring IDE" version="" />
+			<iu id="Integrations / Spring IDE" version="" />
+			<iu id="Resources / Spring IDE" version="" />
+			
+		</p2.mirror>
+		
+	</target>
+
+</project>

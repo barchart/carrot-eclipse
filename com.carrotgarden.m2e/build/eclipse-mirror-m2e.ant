@@ -1,0 +1,30 @@
+<!--
+
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+
+-->
+<project default="eclipse" basedir="./..">
+
+	<echo message="basedir : ${basedir}" />
+
+	<target name="eclipse">
+
+		<echo>m2e</echo>
+
+		<p2.mirror verbose="true">
+
+			<repository location="file:/tmp/m2e-repo" name="m2e" append="true" />
+
+			<source>
+				<repository location="http://download.eclipse.org/technology/m2e/releases/" />
+			</source>
+
+		</p2.mirror>
+
+	</target>
+
+</project>
