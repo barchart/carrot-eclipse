@@ -13,11 +13,20 @@
 
 	<target name="eclipse">
 		
-		<property name="source" value="${basedir}/repository/com.carrotgarden.m2e.scr-LATEST"/>
+		<property name="origin" value="${basedir}/../carrot-eclipse/com.carrotgarden.m2e/com.carrotgarden.m2e.scr/com.carrotgarden.m2e.scr.repository/target/repository" />
+		
+		<property name="source" value="${basedir}/repository/com.carrotgarden.m2e.scr-TESTER"/>
 		<property name="source.features" value="${source}/features"/>
 		<property name="source.plugins" value="${source}/plugins"/>
 		
-		<property name="target" value="${basedir}/repository/com.carrotgarden.m2e.scr-TESTER"/>
+		<property name="target" value="${source}"/>
+		
+		<copy todir="${target}" overwrite="true">
+			<fileset dir="${origin}"/>
+		</copy>
+		
+		<delete file="${target}/artifacts.xml"/>
+		<delete file="${target}/content.xml"/>
 
 		<!--
 			http://wiki.eclipse.org/Equinox/p2/Publisher 
@@ -35,7 +44,7 @@
 			<bundles dir="${source.plugins}"/>
 
 		</p2.publish.featuresAndBundles>
-
+		
 	</target>
 
 </project>
