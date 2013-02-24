@@ -32,15 +32,25 @@
 	<repositories>
 
 		<repository>
-			<id>eclipse-indigo</id>
+			<id>eclipse-platform-3.7</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
 
 		<repository>
-			<id>sonatype-m2e</id>
+			<id>eclipse-m2e-1.1</id>
 			<layout>p2</layout>
-			<url>http://repository.sonatype.org/content/repositories/forge-sites/m2e/1.3.0/N/LATEST/</url>
+			<url>http://download.eclipse.org/technology/m2e/releases/1.1</url>
+		</repository>
+		<repository>
+			<id>eclipse-m2e-1.2</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/m2e/releases/1.2</url>
+		</repository>
+		<repository>
+			<id>eclipse-m2e-1.3</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/m2e/releases/1.3</url>
 		</repository>
 
 	</repositories>
