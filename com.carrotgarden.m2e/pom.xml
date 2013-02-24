@@ -1,12 +1,5 @@
-<!--
-
-    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
-
-    All rights reserved. Licensed under the OSI BSD License.
-
-    http://www.opensource.org/licenses/bsd-license.php
-
--->
+<!-- Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com> 
+	All rights reserved. Licensed under the OSI BSD License. http://www.opensource.org/licenses/bsd-license.php -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -47,7 +40,7 @@
 		<repository>
 			<id>sonatype-m2e</id>
 			<layout>p2</layout>
-			<url>http://repository.sonatype.org/content/repositories/forge-sites/m2e/1.1.0/N/LATEST/</url>
+			<url>http://repository.sonatype.org/content/repositories/forge-sites/m2e/1.2.0/N/LATEST/</url>
 		</repository>
 
 	</repositories>
