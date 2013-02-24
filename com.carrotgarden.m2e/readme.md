@@ -22,6 +22,9 @@ update instructions
 for carrot scr v 1.1.X use m2e v 1.1.X from
 http://download.eclipse.org/technology/m2e/releases/1.1/
 
+for carrot scr v 1.2.X use m2e v 1.2.X from
+http://download.eclipse.org/technology/m2e/releases/1.2/
+
 for carrot scr v 1.3.X use m2e v 1.3.X from
 http://download.eclipse.org/technology/m2e/releases/1.3/
 
