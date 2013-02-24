@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>com.carrotgarden.eclipse</groupId>
 		<artifactId>com.carrotgarden.m2e.scr</artifactId>
-		<version>1.1.5-SNAPSHOT</version>
+		<version>1.1.6-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>com.carrotgarden.m2e.scr.testing</artifactId>
