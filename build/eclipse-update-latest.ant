@@ -1,0 +1,25 @@
+<!--
+
+    Copyright (C) 2010-2012 Andrei Pozolotin <Andrei.Pozolotin@gmail.com>
+
+    All rights reserved. Licensed under the OSI BSD License.
+
+    http://www.opensource.org/licenses/bsd-license.php
+
+-->
+<project default="eclipse" basedir="./..">
+
+	<echo message="basedir : ${basedir}" />
+
+	<target name="eclipse">
+
+		<property name="source" value="${basedir}/repository/com.carrotgarden.m2e.scr-TESTER" />
+		<property name="target" value="${basedir}/repository/com.carrotgarden.m2e.scr-LATEST" />
+
+		<copy todir="${target}" overwrite="true">
+			<fileset dir="${source}" />
+		</copy>
+
+	</target>
+
+</project>

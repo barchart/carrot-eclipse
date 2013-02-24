@@ -41,6 +41,32 @@
 
 		</p2.publish.featuresAndBundles>
 
+		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+
+			<sysproperty key="osgi.bundles" value="org.eclipse.equinox.common@2:start,org.eclipse.update.configurator@3:start,org.eclipse.core.runtime@" />
+
+			<arg value="-consoleLog" />
+
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+
+			<arg value="-repositoryName" />
+			<arg value="CarrotGarden SCR" />
+
+			<arg value="-metadataRepository" />
+			<arg value="file:${target}" />
+
+			<arg value="-categoryDefinition" />
+			<arg value="file:category.xml" />
+
+			<arg value="-categoryQualifier" />
+
+			<classpath>
+				<pathelement location="/opt/genuitec/Common/plugins/org.eclipse.equinox.launcher_1.2.0.v20110502.jar" />
+			</classpath>
+
+		</java>
+
 	</target>
 
 </project>
