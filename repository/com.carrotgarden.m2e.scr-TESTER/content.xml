@@ -2,7 +2,7 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='test-repo-name' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1361984768836'/>
+    <property name='p2.timestamp' value='1361995472029'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <references size='4'>
@@ -11,7 +11,42 @@
     <repository uri='http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/' url='http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/' type='1' options='0'/>
     <repository uri='http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/' url='http://carrot-garden.github.com/carrot-eclipse/repository/com.carrotgarden.m2e.scr-LATEST/' type='0' options='0'/>
   </references>
-  <units size='21'>
+  <units size='24'>
+    <unit id='com.carrotgarden.m2e.scr.feature.feature.jar' version='2.0.1.201302272004'>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
+        <property name='org.eclipse.equinox.p2.description' value='-&#xA;CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator&#xA;according to a proposal described in RFC 0172 Declarative Services Annotations:&#xA;http://www.osgi.org/download/osgi-early-draft-2011-09.pdf&#xA;&#xA;CarrotGarden M2E SCR is an m2e connector for a corresponding maven plugin:&#xA;http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22&#xA;&#xA;CarrotGarden M2E SCR allows for interactive SCR component descriptor updates&#xA;in eclipse which will be compatible with your non-interactive jenkins maven builds.&#xA;&#xA;Sources and Examples,&#xA;for m2e connnector:&#xA;https://github.com/carrot-garden/carrot-eclipse&#xA;for related maven plugin:&#xA;https://github.com/carrot-garden/carrot-maven'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://github.com/carrot-garden/carrot-eclipse'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Andrei Pozolotin'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.feature.feature.jar' version='2.0.1.201302272004'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='com.carrotgarden.m2e.scr.feature' version='2.0.1.201302272004'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='com.carrotgarden.m2e.scr.feature' version='2.0.1.201302272004'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='http://www.eclipse.org/legal/epl-v10.html' url='http://www.eclipse.org/legal/epl-v10.html'>
+          only be well
+        </license>
+      </licenses>
+      <copyright uri='http://en.wikipedia.org/wiki/Copyleft' url='http://en.wikipedia.org/wiki/Copyleft'>
+        only be well
+      </copyright>
+    </unit>
     <unit id='com.carrotgarden.m2e.scr.feature.feature.jar' version='1.1.4.201203161412'>
       <properties size='4'>
         <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
@@ -416,6 +451,44 @@
         only be well
       </copyright>
     </unit>
+    <unit id='com.carrotgarden.m2e.scr.plugin' version='2.0.1.201302272004'>
+      <update id='com.carrotgarden.m2e.scr.plugin' range='[0.0.0,2.0.1.201302272004)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Andrei Pozolotin'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.plugin' version='2.0.1.201302272004'/>
+        <provided namespace='osgi.bundle' name='com.carrotgarden.m2e.scr.plugin' version='2.0.1.201302272004'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.jdt' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.core' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.maven.runtime' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.slf4j.api' range='1.6.4'/>
+        <required namespace='osgi.bundle' name='ch.qos.logback.classic' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.carrotgarden.m2e.scr.plugin' version='2.0.1.201302272004'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.carrotgarden.m2e.scr.plugin;singleton:=true&#xA;Bundle-Version: 2.0.1.201302272004&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='com.carrotgarden.m2e.scr.plugin' version='1.1.6.201302232132'>
       <update id='com.carrotgarden.m2e.scr.plugin' range='[0.0.0,1.1.6.201302232132)' severity='0'/>
       <properties size='2'>
@@ -524,6 +597,44 @@
         only be well
       </copyright>
     </unit>
+    <unit id='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'>
+      <update id='com.carrotgarden.m2e.scr.plugin' range='[0.0.0,2.0.0.201302242307)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Andrei Pozolotin'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
+        <provided namespace='osgi.bundle' name='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.jdt' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.core' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2e.maven.runtime' range='[1.1.0,1.4.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.slf4j.api' range='1.6.4'/>
+        <required namespace='osgi.bundle' name='ch.qos.logback.classic' range='1.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: com.carrotgarden.m2e.scr.plugin;singleton:=true&#xA;Bundle-Version: 2.0.0.201302242307&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='com.carrotgarden.m2e.scr.feature.feature.group' version='1.1.4.201203161412' singleton='false'>
       <update id='com.carrotgarden.m2e.scr.feature.feature.group' range='[0.0.0,1.1.4.201203161412)' severity='0'/>
       <properties size='5'>
@@ -566,44 +677,6 @@
       <copyright uri='http://en.wikipedia.org/wiki/Copyleft' url='http://en.wikipedia.org/wiki/Copyleft'>
         only be well
       </copyright>
-    </unit>
-    <unit id='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'>
-      <update id='com.carrotgarden.m2e.scr.plugin' range='[0.0.0,2.0.0.201302242307)' severity='0'/>
-      <properties size='2'>
-        <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Andrei Pozolotin'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
-        <provided namespace='osgi.bundle' name='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='13'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2e.jdt' range='[1.1.0,1.4.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2e.core' range='[1.1.0,1.4.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2e.maven.runtime' range='[1.1.0,1.4.0)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.4.0'/>
-        <required namespace='osgi.bundle' name='org.slf4j.api' range='1.6.4'/>
-        <required namespace='osgi.bundle' name='ch.qos.logback.classic' range='1.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='com.carrotgarden.m2e.scr.plugin' version='2.0.0.201302242307'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: com.carrotgarden.m2e.scr.plugin;singleton:=true&#xA;Bundle-Version: 2.0.0.201302242307&#xA;
-          </instruction>
-        </instructions>
-      </touchpointData>
     </unit>
     <unit id='com.carrotgarden.m2e.scr.plugin' version='1.1.5.201206211626'>
       <update id='com.carrotgarden.m2e.scr.plugin' range='[0.0.0,1.1.5.201206211626)' severity='0'/>
@@ -750,6 +823,49 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='com.carrotgarden.m2e.scr.feature.feature.group' version='2.0.1.201302272004' singleton='false'>
+      <update id='com.carrotgarden.m2e.scr.feature.feature.group' range='[0.0.0,2.0.1.201302272004)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='CarrotGarden M2E SCR'/>
+        <property name='org.eclipse.equinox.p2.description' value='-&#xA;CarrotGarden M2E SCR provides OSGI Service-Component descriptor generator&#xA;according to a proposal described in RFC 0172 Declarative Services Annotations:&#xA;http://www.osgi.org/download/osgi-early-draft-2011-09.pdf&#xA;&#xA;CarrotGarden M2E SCR is an m2e connector for a corresponding maven plugin:&#xA;http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22carrot-maven-scr-plugin%22&#xA;&#xA;CarrotGarden M2E SCR allows for interactive SCR component descriptor updates&#xA;in eclipse which will be compatible with your non-interactive jenkins maven builds.&#xA;&#xA;Sources and Examples,&#xA;for m2e connnector:&#xA;https://github.com/carrot-garden/carrot-eclipse&#xA;for related maven plugin:&#xA;https://github.com/carrot-garden/carrot-maven'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='https://github.com/carrot-garden/carrot-eclipse'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Andrei Pozolotin'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.feature.feature.group' version='2.0.1.201302272004'/>
+      </provides>
+      <requires size='15'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2e.jdt' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2e.core' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.m2e.maven.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.debug.ui' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.slf4j.api' range='1.6.4'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='ch.qos.logback.classic' range='1.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.plugin' range='[2.0.1.201302272004,2.0.1.201302272004]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.carrotgarden.m2e.scr.feature.feature.jar' range='[2.0.1.201302272004,2.0.1.201302272004]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='http://www.eclipse.org/legal/epl-v10.html' url='http://www.eclipse.org/legal/epl-v10.html'>
+          only be well
+        </license>
+      </licenses>
+      <copyright uri='http://en.wikipedia.org/wiki/Copyleft' url='http://en.wikipedia.org/wiki/Copyleft'>
+        only be well
+      </copyright>
     </unit>
     <unit id='com.carrotgarden.m2e.scr.feature.feature.jar' version='1.2.0.201302240259'>
       <properties size='4'>
