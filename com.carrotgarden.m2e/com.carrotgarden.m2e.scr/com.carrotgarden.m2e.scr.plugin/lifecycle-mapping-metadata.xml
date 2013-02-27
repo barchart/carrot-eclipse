@@ -8,6 +8,10 @@
     http://www.opensource.org/licenses/bsd-license.php
 
 -->
+<!--
+	Provide default life cycle mapping between Maven and Eclipse.
+	http://wiki.eclipse.org/M2E_plugin_execution_not_covered 
+ -->
 <lifecycleMappingMetadata>
 
 	<pluginExecutions>
@@ -16,7 +20,7 @@
 			<pluginExecutionFilter>
 				<groupId>com.carrotgarden.maven</groupId>
 				<artifactId>carrot-maven-scr-plugin</artifactId>
-				<versionRange>[2.0.0,2.1.0)</versionRange>
+				<versionRange>[1.0.0,2.1.0)</versionRange>
 				<goals>
 					<goal>clean</goal>
 					<goal>generate</goal>
@@ -24,6 +28,7 @@
 			</pluginExecutionFilter>
 			<action>
 				<configurator>
+					<!-- Invoke this Eclipse plug-in. -->
 					<id>carrot-maven-scr-plugin</id>
 				</configurator>
 			</action>
