@@ -6,8 +6,8 @@ Bundle-Version: 2.0.1.qualifier
 Bundle-Vendor: Andrei Pozolotin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .,
- target/library/carrot-osgi-anno-scr-core-2.0.0.jar,
- target/library/carrot-osgi-anno-scr-make-2.0.0.jar,
+ target/library/carrot-osgi-anno-scr-core-2.0.1.jar,
+ target/library/carrot-osgi-anno-scr-make-2.0.1.jar,
  target/library/asm-4.1.jar,
  target/library/asm-tree-4.1.jar,
  target/library/org.osgi.core-4.3.1.jar,

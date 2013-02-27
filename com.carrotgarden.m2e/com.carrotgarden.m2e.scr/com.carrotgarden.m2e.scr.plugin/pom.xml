@@ -25,7 +25,7 @@
 
 	<properties>
 	
-		<projectAnnoVersion>2.0.0</projectAnnoVersion>
+		<projectAnnoVersion>2.0.1</projectAnnoVersion>
 
 		<projectOsgiVersion>4.3.1</projectOsgiVersion>
 
